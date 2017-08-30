@@ -1,7 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FatturaElettronica.Core" Version="0.1.0" />
+    <PackageReference Include="FluentValidation" Version="7.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTE\" />
+    <Folder Include="DTR\" />
+    <Folder Include="ANN\" />
+  </ItemGroup>
 
 </Project>
