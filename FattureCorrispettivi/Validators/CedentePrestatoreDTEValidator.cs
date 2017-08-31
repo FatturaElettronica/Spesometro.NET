@@ -9,7 +9,7 @@ namespace ComunicazioneFattureCorrispettivi.Validators
             RuleFor(x => x.IdentificativiFiscali)
                 .SetValidator(new IdentificativiFiscaliItaliaValidator());
             RuleFor(x => x.AltriDatiIdentificativi)
-                .SetValidator(new AltriDatiIdentificativiValidator());
+                .SetValidator(new AltriDatiIdentificativiItaliaValidator());
         }
     }
 }

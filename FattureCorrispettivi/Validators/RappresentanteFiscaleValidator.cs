@@ -5,7 +5,7 @@
         public RappresentanteFiscaleValidator()
         {
             RuleFor(x => x.IdFiscaleIVA)
-                .SetValidator(new IdFiscaleIVAItaliaValidator());
+                .SetValidator(new IdFiscaleIVAValidator());
         }
     }
 }

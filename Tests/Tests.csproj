@@ -66,6 +66,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CessionarioCommittenteDTEValidator.cs" />
     <Compile Include="RappresentanteFiscaleValidator.cs" />
     <Compile Include="BaseClass.cs" />
     <Compile Include="AltriDatiIdentificativiValidator.cs" />

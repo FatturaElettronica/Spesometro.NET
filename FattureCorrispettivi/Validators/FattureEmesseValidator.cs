@@ -8,6 +8,11 @@ namespace ComunicazioneFattureCorrispettivi.Validators
         {
             RuleFor(x => x.CedentePrestatore)
                 .SetValidator(new CedentePrestatoreDTEValidator());
+            RuleFor(x => x.CessionarioCommittente)
+                .SetCollectionValidator(new CessionarioCommittenteDTEValidator())
+                .NotEmpty();
+            RuleFor(x => x.CessionarioCommittente)
+                .Must(items => items.Count >= 1 && items.Count <= 1000);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Tests
 {
     [TestClass]
     public class AltriDatiIdentificativiValidator : 
-        DenominazioneNomeCognomeValidator<AltriDatiIdentificativi, ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiValidator>
+        DenominazioneNomeCognomeValidator<AltriDatiIdentificativi, ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiItaliaValidator>
     {
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.RappresentanteFiscale, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.RappresentanteFiscaleValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.RappresentanteFiscaleItaliaValidator));
         }
     }
 }

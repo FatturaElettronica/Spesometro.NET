@@ -6,7 +6,7 @@ namespace Tests
 {
     [TestClass]
     public class RappresentanteFiscaleValidator : 
-        DenominazioneNomeCognomeValidator<RappresentanteFiscale, ComunicazioneFattureCorrispettivi.Validators.RappresentanteFiscaleValidator>
+        DenominazioneNomeCognomeValidator<RappresentanteFiscale, ComunicazioneFattureCorrispettivi.Validators.RappresentanteFiscaleItaliaValidator>
     {
 
         [TestMethod]

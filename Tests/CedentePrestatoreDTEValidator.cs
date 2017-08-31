@@ -21,7 +21,7 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.AltriDatiIdentificativi, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiItaliaValidator));
         }
     }
 }
