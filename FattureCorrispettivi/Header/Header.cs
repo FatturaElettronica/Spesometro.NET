@@ -1,4 +1,5 @@
-﻿using FatturaElettronica.Common;
+﻿using System.Xml;
+using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureCorrispettivi.Header
 {
@@ -9,6 +10,8 @@ namespace ComunicazioneFattureCorrispettivi.Header
         {
             _dichiarante = new Dichiarante();
         }
+        public Header(XmlReader r) : base(r) { }
+
         [DataProperty]
         public string ProgressivoInvio { get; set; }
         [DataProperty]

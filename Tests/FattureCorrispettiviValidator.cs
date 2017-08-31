@@ -12,7 +12,14 @@ namespace Tests
         [TestMethod]
         public void HeaderHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(x => x.Header, typeof(ComunicazioneFattureCorrispettivi.Validators.HeaderValidator));
+            validator.ShouldHaveChildValidator(
+                x => x.Header, typeof(ComunicazioneFattureCorrispettivi.Validators.HeaderValidator));
+        }
+        [TestMethod]
+        public void FattureEmesseHasChildValidator()
+        {
+            validator.ShouldHaveChildValidator(
+                x => x.FattureEmesse, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureEmesseValidator));
         }
     }
 }

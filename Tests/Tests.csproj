@@ -66,10 +66,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RappresentanteFiscaleValidator.cs" />
     <Compile Include="BaseClass.cs" />
+    <Compile Include="AltriDatiIdentificativiValidator.cs" />
+    <Compile Include="DenominazioneNomeCognomeValidator.cs" />
+    <Compile Include="FattureEmesseValidator.cs" />
     <Compile Include="DichiaranteValidator.cs" />
     <Compile Include="HeaderValidator.cs" />
     <Compile Include="FattureCorrispettiviValidator.cs" />
+    <Compile Include="CedentePrestatoreDTEValidator.cs" />
+    <Compile Include="IdentifificativiFiscaliItaliaValidator.cs" />
+    <Compile Include="IdFiscaleIVAItaliaValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

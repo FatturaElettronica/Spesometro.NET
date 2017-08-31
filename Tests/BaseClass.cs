@@ -124,8 +124,18 @@ namespace Tests
             var prop = GetProperty(outExpr);
 
             prop.SetValue(challenge, "NO");
+            var r = validator.Validate(challenge);
             validator.ShouldHaveValidationErrorFor(outExpr, challenge);
             prop.SetValue(challenge, "SI");
+            validator.ShouldNotHaveValidationErrorFor(outExpr, challenge);
+        }
+        protected void AssertOnlyAcceptsITValue(Expression<Func<TClass, string>> outExpr)
+        {
+            var prop = GetProperty(outExpr);
+
+            prop.SetValue(challenge, "AF");
+            validator.ShouldHaveValidationErrorFor(outExpr, challenge);
+            prop.SetValue(challenge, "IT");
             validator.ShouldNotHaveValidationErrorFor(outExpr, challenge);
         }
         protected void AssertMustBeBasicLatin(Expression<Func<TClass, string>> outExpr)

@@ -8,6 +8,8 @@ namespace ComunicazioneFattureCorrispettivi.Validators
         {
             RuleFor(x => x.Header)
                 .SetValidator(new HeaderValidator());
+            RuleFor(x => x.FattureEmesse)
+                .SetValidator(new FattureEmesseValidator());
         }
     }
 }
