@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTR\" />
     <Folder Include="ANN\" />
   </ItemGroup>
 

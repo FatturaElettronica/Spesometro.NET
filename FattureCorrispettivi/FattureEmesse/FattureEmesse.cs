@@ -13,7 +13,7 @@ namespace ComunicazioneFattureCorrispettivi.FattureEmesse
         public FattureEmesse()
         {
             _cedentePrestatore = new CedentePrestatore();
-            _cessionarioCommittente = new List<CessionarioCommittente>(1000);
+            _cessionarioCommittente = new List<CessionarioCommittente>();
         }
         public FattureEmesse(XmlReader r) : base(r) { }
 

@@ -1,4 +1,6 @@
-﻿namespace ComunicazioneFattureCorrispettivi.FattureEmesse
+﻿using ComunicazioneFattureCorrispettivi.Common;
+
+namespace ComunicazioneFattureCorrispettivi.FattureEmesse
 {
     public class CedentePrestatore : CedenteCessionario { }
 }

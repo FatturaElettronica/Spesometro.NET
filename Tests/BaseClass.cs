@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Linq;
 //using FatturaElettronica.Tabelle;
 using System.Collections.Generic;
+using ComunicazioneFattureCorrispettivi.Tabelle;
 
 namespace Tests
 {
@@ -90,20 +91,20 @@ namespace Tests
             prop.SetValue(challenge, new string(filler, length));
             validator.ShouldNotHaveValidationErrorFor(outExpr, challenge);
         }
-        //protected void AssertOnlyAcceptsTableValues<T>(Expression<Func<TClass, string>> outExpr, string expectedErrorCode= "IsValidValidator`1") where T: Tabella, new()
-        //{
-        //    var prop = GetProperty(outExpr);
+        protected void AssertOnlyAcceptsTableValues<T>(Expression<Func<TClass, string>> outExpr, string expectedErrorCode = "IsValidValidator`1") where T : Tabella, new()
+        {
+            var prop = GetProperty(outExpr);
 
-        //    prop.SetValue(challenge, "hello");
-        //    var r = validator.Validate(challenge);
-        //    validator.ShouldHaveValidationErrorFor(outExpr, challenge).WithErrorCode(expectedErrorCode);
+            prop.SetValue(challenge, "hello");
+            var r = validator.Validate(challenge);
+            validator.ShouldHaveValidationErrorFor(outExpr, challenge).WithErrorCode(expectedErrorCode);
 
-        //    foreach (var codice in new T().Codici)
-        //    {
-        //        prop.SetValue(challenge, codice);
-        //        validator.ShouldNotHaveValidationErrorFor(outExpr, challenge);
-        //    }
-        //}
+            foreach (var codice in new T().Codici)
+            {
+                prop.SetValue(challenge, codice);
+                validator.ShouldNotHaveValidationErrorFor(outExpr, challenge);
+            }
+        }
         protected void AssertCollectionCanBeEmpty<T>(Expression<Func<TClass, List<T>>> outExpr)
         {
             var prop = GetProperty(outExpr);

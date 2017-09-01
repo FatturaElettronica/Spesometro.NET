@@ -1,8 +1,7 @@
 ﻿using System.Xml;
-using ComunicazioneFattureCorrispettivi.Common;
 using FatturaElettronica.Common;
 
-namespace ComunicazioneFattureCorrispettivi.FattureEmesse
+namespace ComunicazioneFattureCorrispettivi.Common
 {
     public class CedenteCessionario : BaseClassSerializable
     {
