@@ -87,9 +87,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FattureCorrispettivi\FattureCorrispettivi.csproj">
-      <Project>{88d1e9c1-5ad1-47fb-8cd4-ba42099ff561}</Project>
-      <Name>FattureCorrispettivi</Name>
+    <ProjectReference Include="..\ComunicazioneFattureCorrispettivi\ComunicazioneFattureCorrispettivi.csproj">
+      <Project>{8d0466e2-be6d-47fa-ab7d-7b03708aaf0f}</Project>
+      <Name>ComunicazioneFattureCorrispettivi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
