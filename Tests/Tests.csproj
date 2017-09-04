@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="CedentePrestatoreDTEValidator - Copy.cs" />
     <Compile Include="CessionarioCommittenteDTEValidator.cs" />
+    <Compile Include="RettificaValidator.cs" />
     <Compile Include="DatiRiepilogoValidator.cs" />
     <Compile Include="DatiGeneraliValidator.cs" />
     <Compile Include="RappresentanteFiscaleValidator.cs" />

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using ComunicazioneFattureCorrispettivi.FattureEmesse;
 using FluentValidation.TestHelper;
@@ -42,6 +43,24 @@ namespace Tests
             challenge.CessionarioCommittente.Add(new CessionarioCommittente());
             r = validator.Validate(challenge);
             Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "CessionarioCommittente"));
+        }
+        [TestMethod]
+        public void RettificaAllowedWithSingleDocument00447()
+        {
+            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+
+            challenge.CessionarioCommittente.AddRange(new List<CessionarioCommittente>() { new CessionarioCommittente(), new CessionarioCommittente() });
+            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+
+            challenge.CessionarioCommittente.Clear();
+            challenge.CessionarioCommittente.Add(new CessionarioCommittente());
+            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            challenge.CessionarioCommittente[0].DatiFatturaBody.AddRange(new List<DatiFatturaBody>() { new DatiFatturaBody(), new DatiFatturaBody() });
+            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+
+            challenge.CessionarioCommittente[0].DatiFatturaBody.Clear();
+            challenge.CessionarioCommittente[0].DatiFatturaBody.Add(new DatiFatturaBody());
+            validator.ShouldNotHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge);
         }
     }
 }
