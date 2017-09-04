@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ComunicazioneFattureCorrispettivi.Common;
 using ComunicazioneFattureCorrispettivi.FattureEmesse;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureCorrispettivi.Validators.CessionarioCommittenteDTEValidator>
+    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioDatiFatturaBodyValidator>
     {
 
         [TestMethod]

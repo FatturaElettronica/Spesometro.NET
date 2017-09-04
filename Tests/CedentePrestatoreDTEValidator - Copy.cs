@@ -1,10 +1,11 @@
-﻿using FluentValidation.TestHelper;
+﻿using ComunicazioneFattureCorrispettivi.Common;
+using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class DatiFatturaBodyValidator : BaseClass<ComunicazioneFattureCorrispettivi.FattureEmesse.DatiFatturaBody, ComunicazioneFattureCorrispettivi.Validators.DatiFatturaBodyValidator>
+    public class DatiFatturaBodyValidator : BaseClass<DatiFatturaBody, ComunicazioneFattureCorrispettivi.Validators.DatiFatturaBodyValidator>
     {
 
         [TestMethod]

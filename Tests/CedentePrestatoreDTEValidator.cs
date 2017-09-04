@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class CedentePrestatoreDTEValidator : BaseClass<CedentePrestatore, ComunicazioneFattureCorrispettivi.Validators.CedentePrestatoreDTEValidator>
+    public class CedentePrestatoreDTEValidator : BaseClass<CedentePrestatore, ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioValidator>
     {
 
         [TestMethod]

@@ -1,10 +1,11 @@
-﻿using FluentValidation;
+﻿using ComunicazioneFattureCorrispettivi.Common;
+using FluentValidation;
 
 namespace ComunicazioneFattureCorrispettivi.Validators
 {
-    public class CessionarioCommittenteDTEValidator : AbstractValidator<FattureEmesse.CessionarioCommittente>
+    public class CedenteCessionarioDatiFatturaBodyValidator : AbstractValidator<CedenteCessionarioDatiFatturaBody>
     {
-        public CessionarioCommittenteDTEValidator()
+        public CedenteCessionarioDatiFatturaBodyValidator()
         {
             RuleFor(x => x.IdentificativiFiscali)
                 .SetValidator(new IdentificativiFiscaliValidator());

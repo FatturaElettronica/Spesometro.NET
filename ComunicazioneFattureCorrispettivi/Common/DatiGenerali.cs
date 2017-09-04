@@ -6,7 +6,6 @@ namespace ComunicazioneFattureCorrispettivi.Common
 {
     public class DatiGenerali : BaseClassSerializable
     {
-
         public DatiGenerali() { }
         public DatiGenerali(XmlReader r) : base(r) { }
         

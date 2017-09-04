@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+using ComunicazioneFattureCorrispettivi.Common;
 using ComunicazioneFattureCorrispettivi.FattureEmesse;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,14 +16,14 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.CedentePrestatore, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.CedentePrestatoreDTEValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
                 x => x.CessionarioCommittente, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.CessionarioCommittenteDTEValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioDatiFatturaBodyValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteCollectionCannotBeEmpty()

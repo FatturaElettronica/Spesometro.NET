@@ -1,8 +1,9 @@
-﻿using FluentValidation;
+﻿using ComunicazioneFattureCorrispettivi.Common;
+using FluentValidation;
 
 namespace ComunicazioneFattureCorrispettivi.Validators
 {
-    public class DatiFatturaBodyValidator : AbstractValidator<FattureEmesse.DatiFatturaBody>
+    public class DatiFatturaBodyValidator : AbstractValidator<DatiFatturaBody>
     {
         public DatiFatturaBodyValidator()
         {

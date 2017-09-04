@@ -1,21 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Xml;
 using System.Xml.Serialization;
 using ComunicazioneFattureCorrispettivi.Common;
 using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureCorrispettivi.FattureEmesse
 {
-    public class CessionarioCommittente : CedenteCessionario
+    public class CessionarioCommittente : CedenteCessionarioDatiFatturaBody
     {
-        private readonly List<DatiFatturaBody> _datiFatturaBody;
-
-        public CessionarioCommittente() : base()
-        {
-            _datiFatturaBody = new List<DatiFatturaBody>();
-        }
+        public CessionarioCommittente() : base() { }
+        public CessionarioCommittente(XmlReader r) : base(r) { }
 
         [DataProperty]
         [XmlElement(ElementName = "DatiFatturaBodyDTE")]
-        public List<DatiFatturaBody> DatiFatturaBody => _datiFatturaBody;
+        public new List<DatiFatturaBody> DatiFatturaBody => base.DatiFatturaBody;
     }
 }
