@@ -9,8 +9,4 @@
     <PackageReference Include="FluentValidation" Version="7.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ANN\" />
-  </ItemGroup>
-
 </Project>

@@ -1,5 +1,4 @@
-﻿using System;
-using ComunicazioneFattureCorrispettivi;
+﻿using ComunicazioneFattureCorrispettivi;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -20,6 +19,18 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.FattureEmesse, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureEmesseValidator));
+        }
+        [TestMethod]
+        public void FattureRicevuteHasChildValidator()
+        {
+            validator.ShouldHaveChildValidator(
+                x => x.FattureRicevute, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureRicevuteValidator));
+        }
+        [TestMethod]
+        public void AnnullamentoHasChildValidator()
+        {
+            validator.ShouldHaveChildValidator(
+                x => x.Annullamento, typeof(ComunicazioneFattureCorrispettivi.Validators.RettificaValidator));
         }
     }
 }
