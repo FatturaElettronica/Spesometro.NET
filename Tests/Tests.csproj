@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FatturaElettronica.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FatturaElettronica.Core.0.1.0\lib\netstandard1.1\FatturaElettronica.Core.dll</HintPath>
+    </Reference>
     <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.7.1.1\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
@@ -86,10 +89,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FatturaElettronica.Core\FatturaElettronica.Core.csproj">
-      <Project>{2406ef95-2975-492a-bf10-26cfcb6e635f}</Project>
-      <Name>FatturaElettronica.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ComunicazioneFattureCorrispettivi\ComunicazioneFattureCorrispettivi.csproj">
       <Project>{8d0466e2-be6d-47fa-ab7d-7b03708aaf0f}</Project>
       <Name>ComunicazioneFattureCorrispettivi</Name>
