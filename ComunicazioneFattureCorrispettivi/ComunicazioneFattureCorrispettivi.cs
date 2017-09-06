@@ -3,13 +3,13 @@ using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureCorrispettivi
 {
-    public class FattureCorrispettivi : BaseClassSerializable
+    public class ComunicazioneFattureCorrispettivi : BaseClassSerializable
     {
         private readonly Header.Header _header;
         private readonly FattureEmesse.FattureEmesse _fattureEmesse;
         private readonly FattureRicevute.FattureRicevute _fattureRicevute;
         private readonly Annullamento.Annullamento _annullamento;
-        public FattureCorrispettivi()
+        public ComunicazioneFattureCorrispettivi()
         {
             _header = new Header.Header();
             _fattureEmesse = new FattureEmesse.FattureEmesse();
