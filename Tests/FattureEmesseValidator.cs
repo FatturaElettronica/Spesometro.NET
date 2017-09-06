@@ -47,20 +47,28 @@ namespace Tests
         [TestMethod]
         public void RettificaAllowedWithSingleDocument00447()
         {
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            challenge.Rettifica.Posizione = 1;
+            var r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
             challenge.CessionarioCommittente.AddRange(new List<CessionarioCommittente>() { new CessionarioCommittente(), new CessionarioCommittente() });
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
             challenge.CessionarioCommittente.Clear();
             challenge.CessionarioCommittente.Add(new CessionarioCommittente());
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
-            challenge.CessionarioCommittente[0].DatiFatturaBody.AddRange(new List<DatiFatturaBody>() { new DatiFatturaBody(), new DatiFatturaBody() });
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
+            challenge.CessionarioCommittente[0].DatiFatturaBody.AddRange(new List<DatiFatturaBody>() { new DatiFatturaBody(), new DatiFatturaBody() });
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
+
+            challenge.Rettifica.Posizione = 0;
             challenge.CessionarioCommittente[0].DatiFatturaBody.Clear();
             challenge.CessionarioCommittente[0].DatiFatturaBody.Add(new DatiFatturaBody());
-            validator.ShouldNotHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge);
+            r = validator.Validate(challenge);
+            Assert.IsNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
         }
     }
 }

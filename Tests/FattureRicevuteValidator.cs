@@ -47,23 +47,30 @@ namespace Tests
         [TestMethod]
         public void RettificaAllowedWithSingleDocument00447()
         {
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            challenge.Rettifica.Posizione = 1;
+            var r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
             var cedentePrestatore = new CedentePrestatore();
             challenge.CedentePrestatore.AddRange(Enumerable.Repeat(cedentePrestatore, 2));
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
             challenge.CedentePrestatore.Clear();
             challenge.CedentePrestatore.Add(cedentePrestatore);
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
             var datiFatturaBody = new ComunicazioneFattureCorrispettivi.FattureRicevute.DatiFatturaBody();
             challenge.CedentePrestatore[0].DatiFatturaBody.AddRange(Enumerable.Repeat(datiFatturaBody,2));
-            validator.ShouldHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge).WithErrorCode("00447");
+            r = validator.Validate(challenge);
+            Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
+            challenge.Rettifica.Posizione = 0;
             challenge.CedentePrestatore[0].DatiFatturaBody.Clear();
             challenge.CedentePrestatore[0].DatiFatturaBody.Add(datiFatturaBody);
-            validator.ShouldNotHaveValidationErrorFor(x => x.Rettifica.IdFile, challenge);
+            r = validator.Validate(challenge);
+            Assert.IsNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
         }
     }
 }
