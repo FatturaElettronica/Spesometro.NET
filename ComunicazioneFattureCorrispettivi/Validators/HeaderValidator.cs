@@ -11,7 +11,8 @@ namespace ComunicazioneFattureCorrispettivi.Validators
                 .Length(1, 10)
                 .When(x=>!string.IsNullOrEmpty(x.ProgressivoInvio));
             RuleFor(x => x.Dichiarante)
-                .SetValidator(new DichiaranteValidator());
+                .SetValidator(new DichiaranteValidator())
+                .When(x=>!x.Dichiarante.IsEmpty());
         }
     }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:DatiFattura versione="DAT20" xmlns:ns2="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v2.0">
+<DatiFatturaHeader>
+  <ProgressivoInvio>19</ProgressivoInvio>
+</DatiFatturaHeader>
+<DTR>
+  <CessionarioCommittenteDTR>
+    <IdentificativiFiscali>
+     <IdFiscaleIVA>
+       <IdPaese>IT</IdPaese>
+      <IdCodice>03954060632</IdCodice>
+      </IdFiscaleIVA>
+     <CodiceFiscale>GRDSFN66D17H199K</CodiceFiscale>
+   </IdentificativiFiscali>
+   <AltriDatiIdentificativi>
+     <Nome>PIPPO</Nome>
+     <Cognome>FRANCO</Cognome>
+     <Sede>
+       <Indirizzo>Via Posillipo</Indirizzo>
+      <NumeroCivico>1</NumeroCivico>
+      <CAP>80100</CAP>
+      <Comune>Napoli</Comune>
+      <Provincia>NA</Provincia>
+      <Nazione>IT</Nazione>
+     </Sede>
+   </AltriDatiIdentificativi>
+  </CessionarioCommittenteDTR>
+  <CedentePrestatoreDTR>
+  <IdentificativiFiscali>
+     <IdFiscaleIVA>
+       <IdPaese>IT</IdPaese>
+      <IdCodice>03954060632</IdCodice>
+      </IdFiscaleIVA>      
+     <CodiceFiscale>93006500610</CodiceFiscale>
+   </IdentificativiFiscali>
+   <AltriDatiIdentificativi>
+     <Denominazione>PIPPO S.R.L.</Denominazione>
+     <Sede>
+       <Indirizzo>VIA ROMA</Indirizzo>
+      <CAP>80100</CAP>
+      <Comune>napoli</Comune>
+      <Provincia>NA</Provincia>
+      <Nazione>IT</Nazione>
+     </Sede>
+   </AltriDatiIdentificativi>
+  <DatiFatturaBodyDTR>
+    <DatiGenerali>
+     <TipoDocumento>TD01</TipoDocumento>
+     <Data>2017-05-01</Data>
+     <Numero>2</Numero>
+     <DataRegistrazione>2017-05-01</DataRegistrazione>
+   </DatiGenerali>
+   <DatiRiepilogo>
+     <ImponibileImporto>1000.00</ImponibileImporto>
+     <DatiIVA>
+       <Imposta>100.00</Imposta>
+      <Aliquota>10.00</Aliquota>
+      </DatiIVA>
+   </DatiRiepilogo>
+  </DatiFatturaBodyDTR>   
+  </CedentePrestatoreDTR>
+</DTR>
+</ns2:DatiFattura>

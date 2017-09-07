@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:DatiFattura versione="DAT20" xmlns:ns2="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v2.0">
+  <DatiFatturaHeader>
+    <ProgressivoInvio>0112001</ProgressivoInvio>
+  </DatiFatturaHeader>
+  <DTE>
+    <CedentePrestatoreDTE>
+      <IdentificativiFiscali>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>xxxxxxxxxxxxxxxxx</IdCodice>
+        </IdFiscaleIVA>
+      </IdentificativiFiscali>
+      <AltriDatiIdentificativi>
+        <Denominazione>GATEWAY INFORMATICA SRL</Denominazione>
+        <Sede>
+          <Indirizzo>VIA DEGLI STADI,32</Indirizzo>
+          <CAP>87100</CAP>
+          <Comune>COSENZA</Comune>
+          <Provincia>CS</Provincia>
+          <Nazione>IT</Nazione>
+        </Sede>
+      </AltriDatiIdentificativi>
+    </CedentePrestatoreDTE>
+    <CessionarioCommittenteDTE>
+      <IdentificativiFiscali>
+        <CodiceFiscale>GRDSFN66D17H199K</CodiceFiscale>
+      </IdentificativiFiscali>
+      <AltriDatiIdentificativi>
+        <Denominazione>XXXXXXXXXXXXX</Denominazione>
+        <Sede>
+          <Indirizzo>Via Giuseppe Mercalli, 2</Indirizzo>
+          <CAP>80056</CAP>
+          <Comune>Ercolano</Comune>
+          <Provincia>NA</Provincia>
+          <Nazione>IT</Nazione>
+        </Sede>
+        </AltriDatiIdentificativi>
+      <DatiFatturaBodyDTE>
+        <DatiGenerali>
+          <TipoDocumento>TD01</TipoDocumento>
+          <Data>2017-01-02</Data>
+          <Numero>1</Numero>
+        </DatiGenerali>
+        <DatiRiepilogo>
+          <ImponibileImporto>561.10</ImponibileImporto>
+          <DatiIVA>
+            <Imposta>123.44</Imposta>
+            <Aliquota>22.00</Aliquota>
+          </DatiIVA>
+          <Detraibile>100.00</Detraibile>
+          <EsigibilitaIVA>I</EsigibilitaIVA>
+        </DatiRiepilogo>
+      </DatiFatturaBodyDTE>
+    </CessionarioCommittenteDTE>
+    <CessionarioCommittenteDTE>
+      <IdentificativiFiscali>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>xxxxxxxxxxxxxxxx</IdCodice>
+        </IdFiscaleIVA>
+      </IdentificativiFiscali>
+      <AltriDatiIdentificativi>
+        <Denominazione>ZZZZZZZZZZZZZZZZ</Denominazione>
+        <Sede>
+          <Indirizzo>Via Ripuaria, 119</Indirizzo>
+          <CAP>80014</CAP>
+          <Comune>Giugliano in Campania</Comune>
+          <Provincia>NA</Provincia>
+          <Nazione>IT</Nazione>
+        </Sede>
+      </AltriDatiIdentificativi>
+      <DatiFatturaBodyDTE>
+        <DatiGenerali>
+          <TipoDocumento>TD01</TipoDocumento>
+          <Data>2017-01-02</Data>
+          <Numero>2</Numero>
+        </DatiGenerali>
+        <DatiRiepilogo>
+          <ImponibileImporto>183.10</ImponibileImporto>
+          <DatiIVA>
+            <Imposta>40.28</Imposta>
+            <Aliquota>22.00</Aliquota>
+          </DatiIVA>
+          <Detraibile>100.00</Detraibile>
+          <EsigibilitaIVA>I</EsigibilitaIVA>
+        </DatiRiepilogo>
+      </DatiFatturaBodyDTE>
+    </CessionarioCommittenteDTE>
+</DTE>
+</ns2:DatiFattura>

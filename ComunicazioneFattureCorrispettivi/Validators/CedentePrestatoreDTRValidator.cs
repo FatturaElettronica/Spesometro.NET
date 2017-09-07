@@ -3,12 +3,12 @@ using FluentValidation;
 
 namespace ComunicazioneFattureCorrispettivi.Validators
 {
-    public class CedenteCessionarioDatiFatturaBodyValidator : AbstractValidator<CedenteCessionarioDatiFatturaBody>
+    public class CedentePrestatoreDTRValidator : AbstractValidator<CedenteCessionarioDatiFatturaBody>
     {
-        public CedenteCessionarioDatiFatturaBodyValidator()
+        public CedentePrestatoreDTRValidator()
         {
             RuleFor(x => x.IdentificativiFiscali)
-                .SetValidator(new IdentificativiFiscaliValidator());
+                .SetValidator(new IdentificativiFiscaliCedentePrestatoreDTRValidator());
             RuleFor(x => x.AltriDatiIdentificativi)
                 .SetValidator(new AltriDatiIdentificativiValidator());
             RuleFor(x => x.DatiFatturaBody)

@@ -7,21 +7,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioDatiFatturaBodyValidator>
+    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureCorrispettivi.Validators.CessionarioCommittenteDTEValidator>
     {
 
         [TestMethod]
         public void IdentificativiFiscaliHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(
-                x => x.IdentificativiFiscali, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.IdentificativiFiscaliValidator));
+            validator.ShouldHaveDelegateChildValidator(
+                x => x.IdentificativiFiscali,
+                typeof(ComunicazioneFattureCorrispettivi.Validators.IdentificativiFiscaliCessionarioCommittenteDTEValidator));
         }
         [TestMethod]
         public void AltriDatiIdentificativiHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(
-                x => x.AltriDatiIdentificativi, 
+            validator.ShouldHaveDelegateChildValidator(
+                x => x.AltriDatiIdentificativi,
                 typeof(ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiValidator));
         }
         [TestMethod]

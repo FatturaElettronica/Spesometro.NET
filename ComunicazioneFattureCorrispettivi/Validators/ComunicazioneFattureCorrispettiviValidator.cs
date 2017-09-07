@@ -13,7 +13,8 @@ namespace ComunicazioneFattureCorrispettivi.Validators
             RuleFor(x => x.FattureRicevute)
                 .SetValidator(new FattureRicevuteValidator());
             RuleFor(x => x.Annullamento)
-                .SetValidator(new RettificaValidator());
+                .SetValidator(new RettificaValidator())
+                .When(x=>!x.Annullamento.IsEmpty());
             RuleFor(x => x.FattureEmesse)
                 .Must(x=>x.IsEmpty())
                 .When(x => !x.FattureRicevute.IsEmpty() || !x.Annullamento.IsEmpty())

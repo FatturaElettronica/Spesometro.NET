@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using ComunicazioneFattureCorrispettivi.Settings;
 using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureCorrispettivi
@@ -16,6 +17,25 @@ namespace ComunicazioneFattureCorrispettivi
             _fattureRicevute = new FattureRicevute.FattureRicevute();
             _annullamento = new Annullamento.Annullamento();
         }
+
+        public override void WriteXml(System.Xml.XmlWriter w)
+        {
+            w.WriteStartElement(RootElement.Prefix, RootElement.LocalName, RootElement.NameSpace);
+            w.WriteAttributeString("versione", Settings.Version.Current);
+            foreach (var a in RootElement.ExtraAttributes)
+            {
+                w.WriteAttributeString(a.Prefix, a.LocalName, a.ns, a.value);
+            }
+            base.WriteXml(w);
+            w.WriteEndElement();
+        }
+
+        public override void ReadXml(System.Xml.XmlReader r)
+        {
+            r.MoveToContent();
+            base.ReadXml(r);
+        }
+
         [DataProperty]
         [XmlElement(ElementName = "DatiFatturaHeader")]
         public Header.Header Header => _header;

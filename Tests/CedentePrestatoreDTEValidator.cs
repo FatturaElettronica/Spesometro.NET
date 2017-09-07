@@ -1,12 +1,12 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
-using ComunicazioneFattureCorrispettivi.FattureEmesse;
+﻿using ComunicazioneFattureCorrispettivi.FattureEmesse;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class CedentePrestatoreDTEValidator : BaseClass<CedentePrestatore, ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioValidator>
+    public class CedentePrestatoreDTEValidator : BaseClass<CedentePrestatore, 
+        ComunicazioneFattureCorrispettivi.Validators.CedentePrestatoreDTEValidator>
     {
 
         [TestMethod]
@@ -14,7 +14,7 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.IdentificativiFiscali, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.IdentificativiFiscaliItaliaValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.IdentificativiFiscaliCedentePrestatoreDTEValidator));
         }
         [TestMethod]
         public void AltriDatiIdentificativiHasChildValidator()

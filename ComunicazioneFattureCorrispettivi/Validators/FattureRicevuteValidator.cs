@@ -7,10 +7,10 @@ namespace ComunicazioneFattureCorrispettivi.Validators
         public FattureRicevuteValidator()
         {
             RuleFor(x => x.CessionarioCommittente)
-                .SetValidator(new CedenteCessionarioValidator())
+                .SetValidator(new CessionarioCommittenteDTRValidator())
                 .NotEmpty();
             RuleFor(x => x.CedentePrestatore)
-                .SetCollectionValidator(new CedenteCessionarioDatiFatturaBodyValidator())
+                .SetCollectionValidator(new CedentePrestatoreDTRValidator())
                 .NotEmpty();
             RuleFor(x => x.CedentePrestatore)
                 .Must(items => items.Count >= 1 && items.Count <= 1000);

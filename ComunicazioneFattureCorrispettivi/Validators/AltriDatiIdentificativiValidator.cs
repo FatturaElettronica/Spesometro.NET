@@ -1,4 +1,6 @@
-﻿namespace ComunicazioneFattureCorrispettivi.Validators
+﻿using FluentValidation;
+
+namespace ComunicazioneFattureCorrispettivi.Validators
 {
     public class AltriDatiIdentificativiValidator : DenominazioneNomeCognomeValidator<Common.AltriDatiIdentificativi>
     {
@@ -7,9 +9,11 @@
             RuleFor(x => x.Sede)
                 .SetValidator(new LocalitàValidator());
             RuleFor(x => x.StabileOrganizzazione)
-                .SetValidator(new LocalitàValidator());
+                .SetValidator(new LocalitàValidator())
+                .When(x=>!x.StabileOrganizzazione.IsEmpty());
             RuleFor(x => x.RappresentanteFiscale)
-                .SetValidator(new RappresentanteFiscaleValidator());
+                .SetValidator(new RappresentanteFiscaleValidator())
+                .When(x=>!x.RappresentanteFiscale.IsEmpty());
         }
     }
 }

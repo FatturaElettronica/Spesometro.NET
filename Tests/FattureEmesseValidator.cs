@@ -16,14 +16,14 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.CedentePrestatore, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.CedentePrestatoreDTEValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
                 x => x.CessionarioCommittente, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.CedenteCessionarioDatiFatturaBodyValidator));
+                typeof(ComunicazioneFattureCorrispettivi.Validators.CessionarioCommittenteDTEValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteCollectionCannotBeEmpty()

@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="CedentePrestatoreDTEValidator - Copy.cs" />
     <Compile Include="CessionarioCommittenteDTEValidator.cs" />
+    <Compile Include="DeserializeAndSerialize.cs" />
     <Compile Include="FattureRicevuteValidator.cs" />
     <Compile Include="RettificaValidator.cs" />
     <Compile Include="DatiRiepilogoValidator.cs" />
@@ -81,9 +82,9 @@
     <Compile Include="HeaderValidator.cs" />
     <Compile Include="ComunicazioneFattureCorrispettiviValidator.cs" />
     <Compile Include="CedentePrestatoreDTEValidator.cs" />
-    <Compile Include="IdentifificativiFiscaliItaliaValidator.cs" />
     <Compile Include="IdFiscaleIVAItaliaValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,6 +94,10 @@
       <Project>{8d0466e2-be6d-47fa-ab7d-7b03708aaf0f}</Project>
       <Name>ComunicazioneFattureCorrispettivi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Samples\ITAAABBB99T99X999W_DF_00002.xml" />
+    <Content Include="Samples\ITAAABBB99T99X999W_DF_00004.xml" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -104,4 +109,7 @@
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)Samples" "$(TargetDir)\Samples\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

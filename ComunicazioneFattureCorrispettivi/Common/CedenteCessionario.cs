@@ -15,9 +15,9 @@ namespace ComunicazioneFattureCorrispettivi.Common
         }
         public CedenteCessionario(XmlReader r) : base(r) { }
 
-        [DataProperty]
+        [DataProperty(order:0)]
         public IdentificativiFiscali IdentificativiFiscali => _identificativiFiscali;
-        [DataProperty]
+        [DataProperty(order:1)]
         public AltriDatiIdentificativi AltriDatiIdentificativi => _altriDatiIdentificativi;
     }
 }

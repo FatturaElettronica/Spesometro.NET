@@ -21,7 +21,7 @@ namespace Tests
         [TestMethod]
         public void DichiaranteHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(x => x.Dichiarante, typeof(ComunicazioneFattureCorrispettivi.Validators.DichiaranteValidator));
+            validator.ShouldHaveDelegateChildValidator(x => x.Dichiarante, typeof(ComunicazioneFattureCorrispettivi.Validators.DichiaranteValidator));
         }
     }
 }
