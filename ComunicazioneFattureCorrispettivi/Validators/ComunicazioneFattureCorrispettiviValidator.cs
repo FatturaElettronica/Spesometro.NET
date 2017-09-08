@@ -9,9 +9,11 @@ namespace ComunicazioneFattureCorrispettivi.Validators
             RuleFor(x => x.Header)
                 .SetValidator(new HeaderValidator());
             RuleFor(x => x.FattureEmesse)
-                .SetValidator(new FattureEmesseValidator());
+                .SetValidator(new FattureEmesseValidator())
+                .When(x=>!x.FattureEmesse.IsEmpty());
             RuleFor(x => x.FattureRicevute)
-                .SetValidator(new FattureRicevuteValidator());
+                .SetValidator(new FattureRicevuteValidator())
+                .When(x=>!x.FattureRicevute.IsEmpty());
             RuleFor(x => x.Annullamento)
                 .SetValidator(new RettificaValidator())
                 .When(x=>!x.Annullamento.IsEmpty());

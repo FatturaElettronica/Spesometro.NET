@@ -17,19 +17,19 @@ namespace Tests
         [TestMethod]
         public void FattureEmesseHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(
+            validator.ShouldHaveDelegateChildValidator(
                 x => x.FattureEmesse, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureEmesseValidator));
         }
         [TestMethod]
         public void FattureRicevuteHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(
+            validator.ShouldHaveDelegateChildValidator(
                 x => x.FattureRicevute, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureRicevuteValidator));
         }
         [TestMethod]
         public void AnnullamentoHasChildValidator()
         {
-            validator.ShouldHaveChildValidator(
+            validator.ShouldHaveDelegateChildValidator(
                 x => x.Annullamento, typeof(ComunicazioneFattureCorrispettivi.Validators.RettificaValidator));
         }
         [TestMethod]

@@ -44,36 +44,35 @@ namespace Tests
         [TestMethod]
         public void DeserializeAndThenSerializeDTESample()
         {
-            DeserializeAndThenSerialize("Samples/ITAAABBB99T99X999W_DF_00004.xml");
+            DeserializeAndThenSerialize("Samples/ITAAABBB99T99X999W_DF_00004.xml", "DTE");
         }
 
         [TestMethod]
         public void DeserializeAndThenSerializeDTRSample()
         {
-            DeserializeAndThenSerialize("Samples/ITAAABBB99T99X999W_DF_00002.xml");
+            DeserializeAndThenSerialize("Samples/ITAAABBB99T99X999W_DF_00002.xml", "DTR");
         }
 
-        private void DeserializeAndThenSerialize(string filename)
+        private void DeserializeAndThenSerialize(string filename, string sample)
         {
-            var f1 = Deserialize(filename);
+            var comunicazione = Deserialize(filename);
+            var validator = new ComunicazioneFattureCorrispettivi.Validators.ComunicazioneFattureCorrispettiviValidator();
 
-            var v = new ComunicazioneFattureCorrispettivi.Validators.ComunicazioneFattureCorrispettiviValidator();
-            var r = v.Validate(f1);
-            Assert.IsTrue(v.Validate(f1).IsValid);
-            //ValidateInvoice(f, expectedFormat);
+            var r = validator.Validate(comunicazione);
+            Assert.IsTrue(validator.Validate(comunicazione).IsValid);
+            ValidateComunicazione(comunicazione, sample);
 
-            // Serialize it back to disk, to another file
-            using (var w = XmlWriter.Create("challenge.xml", new XmlWriterSettings { Indent = true })) {
-                f1.WriteXml(w);
+            using (var w = XmlWriter.Create("challenge.xml", new XmlWriterSettings { Indent = true }))
+            {
+                comunicazione.WriteXml(w);
             }
 
-            // Deserialize the new file and validate it
-            var f2 = Deserialize("challenge.xml");
+            comunicazione = Deserialize("challenge.xml");
 
-            //Assert.IsTrue(v.Validate(f2).IsValid);
-            //ValidateInvoice(f2, expectedFormat);
+            Assert.IsTrue(validator.Validate(comunicazione).IsValid);
+            ValidateComunicazione(comunicazione, sample);
 
-            //File.Delete("challenge.xml");
+            File.Delete("challenge.xml");
         }
         private ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi Deserialize(string fileName)
         {
@@ -85,120 +84,110 @@ namespace Tests
             }
             return doc;
         }
-        //private void ValidateInvoice(FatturaElettronica.Fattura f, string expectedFormat)
-        //{
+        private void ValidateComunicazione(ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi c, string sample)
+        {
+            switch (sample)
+            {
+                case "DTE":
+                    ValidateComunicazioneDTE(c);
+                    break;
+                case "DTR":
+                    ValidateComunicazioneDTR(c);
+                    break;
+            }
+        }
+        private void ValidateComunicazioneDTE(ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi c)
+        {
+            Assert.AreEqual("0112001", c.Header.ProgressivoInvio);
 
-        //    var header = f.Header;
+            var cp = c.FattureEmesse.CedentePrestatore;
+            Assert.AreEqual("IT", cp.IdentificativiFiscali.IdFiscaleIVA.IdPaese);
+            Assert.AreEqual("xxxxxxxxxxxxxxxxx", cp.IdentificativiFiscali.IdFiscaleIVA.IdCodice);
+            Assert.AreEqual("GATEWAY INFORMATICA SRL", cp.AltriDatiIdentificativi.Denominazione);
+            Assert.AreEqual("VIA DEGLI STADI,32", cp.AltriDatiIdentificativi.Sede.Indirizzo);
+            Assert.AreEqual("87100", cp.AltriDatiIdentificativi.Sede.CAP);
+            Assert.AreEqual("COSENZA", cp.AltriDatiIdentificativi.Sede.Comune);
+            Assert.AreEqual("CS", cp.AltriDatiIdentificativi.Sede.Provincia);
+            Assert.AreEqual("IT", cp.AltriDatiIdentificativi.Sede.Nazione);
 
-        //    // DatiTrasmissione
-        //    Assert.AreEqual("00001", header.DatiTrasmissione.ProgressivoInvio);
-        //    Assert.AreEqual((expectedFormat == FormatoTrasmissione.Privati) ? "0000000" : "AAAAAA", header.DatiTrasmissione.CodiceDestinatario);
+            var cc = c.FattureEmesse.CessionarioCommittente[0];
+            Assert.AreEqual("GRDSFN66D17H199K", cc.IdentificativiFiscali.CodiceFiscale);
+            Assert.AreEqual("XXXXXXXXXXXXX", cc.AltriDatiIdentificativi.Denominazione);
+            Assert.AreEqual("Via Giuseppe Mercalli, 2", cc.AltriDatiIdentificativi.Sede.Indirizzo);
+            Assert.AreEqual("80056", cc.AltriDatiIdentificativi.Sede.CAP);
+            Assert.AreEqual("Ercolano", cc.AltriDatiIdentificativi.Sede.Comune);
+            Assert.AreEqual("NA", cc.AltriDatiIdentificativi.Sede.Provincia);
+            Assert.AreEqual("IT", cc.AltriDatiIdentificativi.Sede.Nazione);
+            var b = cc.DatiFatturaBody[0];
+            Assert.AreEqual("TD01", b.DatiGenerali.TipoDocumento);
+            Assert.AreEqual(2017, b.DatiGenerali.Data.Year);
+            Assert.AreEqual(2, b.DatiGenerali.Data.Day);
+            Assert.AreEqual(1, b.DatiGenerali.Data.Month);
+            Assert.AreEqual("1", b.DatiGenerali.Numero);
+            Assert.AreEqual(561.10m, b.DatiRiepilogo[0].ImponibileImporto);
+            Assert.AreEqual(100m, b.DatiRiepilogo[0].Detraibile);
+            Assert.AreEqual("I", b.DatiRiepilogo[0].EsigibilitaIVA);
+            Assert.AreEqual(123.44m, b.DatiRiepilogo[0].DatiIVA.Imposta);
+            Assert.AreEqual(22m, b.DatiRiepilogo[0].DatiIVA.Aliquota);
 
-        //    Assert.AreEqual("IT", header.DatiTrasmissione.IdTrasmittente.IdPaese);
-        //    Assert.AreEqual("01234567890", header.DatiTrasmissione.IdTrasmittente.IdCodice);
-        //    Assert.AreEqual((expectedFormat == FormatoTrasmissione.Privati) ? "betagamma@pec.it" : null, header.DatiTrasmissione.PECDestinatario);
+            cc = c.FattureEmesse.CessionarioCommittente[1];
+            Assert.AreEqual("IT", cc.IdentificativiFiscali.IdFiscaleIVA.IdPaese);
+            Assert.AreEqual("xxxxxxxxxxxxxxxx", cc.IdentificativiFiscali.IdFiscaleIVA.IdCodice);
+            Assert.AreEqual("ZZZZZZZZZZZZZZZZ", cc.AltriDatiIdentificativi.Denominazione);
+            Assert.AreEqual("Via Ripuaria, 119", cc.AltriDatiIdentificativi.Sede.Indirizzo);
+            Assert.AreEqual("80014", cc.AltriDatiIdentificativi.Sede.CAP);
+            Assert.AreEqual("Giugliano in Campania", cc.AltriDatiIdentificativi.Sede.Comune);
+            Assert.AreEqual("NA", cc.AltriDatiIdentificativi.Sede.Provincia);
+            Assert.AreEqual("IT", cc.AltriDatiIdentificativi.Sede.Nazione);
+            b = cc.DatiFatturaBody[0];
+            Assert.AreEqual("TD01", b.DatiGenerali.TipoDocumento);
+            Assert.AreEqual(2017, b.DatiGenerali.Data.Year);
+            Assert.AreEqual(2, b.DatiGenerali.Data.Day);
+            Assert.AreEqual(1, b.DatiGenerali.Data.Month);
+            Assert.AreEqual("2", b.DatiGenerali.Numero);
+            Assert.AreEqual(183.10m, b.DatiRiepilogo[0].ImponibileImporto);
+            Assert.AreEqual(100m, b.DatiRiepilogo[0].Detraibile);
+            Assert.AreEqual("I", b.DatiRiepilogo[0].EsigibilitaIVA);
+            Assert.AreEqual(40.28m, b.DatiRiepilogo[0].DatiIVA.Imposta);
+            Assert.AreEqual(22m, b.DatiRiepilogo[0].DatiIVA.Aliquota);
+        }
+        private void ValidateComunicazioneDTR(ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi c)
+        {
+            Assert.AreEqual("19", c.Header.ProgressivoInvio);
 
-        //    // CedentePrestatore
-        //    Assert.AreEqual("IT", header.CedentePrestatore.DatiAnagrafici.IdFiscaleIVA.IdPaese);
-        //    Assert.AreEqual("01234567890", header.CedentePrestatore.DatiAnagrafici.IdFiscaleIVA.IdCodice);
-        //    Assert.AreEqual("SOCIETA' ALPHA SRL", header.CedentePrestatore.DatiAnagrafici.Anagrafica.Denominazione);
-        //    Assert.AreEqual("RF01", header.CedentePrestatore.DatiAnagrafici.RegimeFiscale);
-        //    Assert.AreEqual("VIALE ROMA 543", header.CedentePrestatore.Sede.Indirizzo);
-        //    Assert.AreEqual("07100", header.CedentePrestatore.Sede.CAP);
-        //    Assert.AreEqual("SASSARI", header.CedentePrestatore.Sede.Comune);
-        //    Assert.AreEqual("IT", header.CedentePrestatore.Sede.Nazione);
-        //    // CessionarioCommittente
-        //    Assert.AreEqual("09876543210", header.CessionarioCommittente.DatiAnagrafici.CodiceFiscale);
-        //    Assert.AreEqual((expectedFormat == FormatoTrasmissione.Privati) ? "BETA GAMMA" : "AMMINISTRAZIONE BETA", header.CessionarioCommittente.DatiAnagrafici.Anagrafica.Denominazione);
-        //    Assert.AreEqual("VIA TORINO 38-B", header.CessionarioCommittente.Sede.Indirizzo);
-        //    Assert.AreEqual("00145", header.CessionarioCommittente.Sede.CAP);
-        //    Assert.AreEqual("ROMA", header.CessionarioCommittente.Sede.Comune);
-        //    Assert.AreEqual("RM", header.CessionarioCommittente.Sede.Provincia);
-        //    Assert.AreEqual("IT", header.CessionarioCommittente.Sede.Nazione);
+            var cc = c.FattureRicevute.CessionarioCommittente;
+            Assert.AreEqual("IT", cc.IdentificativiFiscali.IdFiscaleIVA.IdPaese);
+            Assert.AreEqual("03954060632", cc.IdentificativiFiscali.IdFiscaleIVA.IdCodice);
+            Assert.AreEqual("GRDSFN66D17H199K", cc.IdentificativiFiscali.CodiceFiscale);
+            Assert.AreEqual("PIPPO", cc.AltriDatiIdentificativi.Nome);
+            Assert.AreEqual("FRANCO", cc.AltriDatiIdentificativi.Cognome);
+            Assert.AreEqual("Via Posillipo", cc.AltriDatiIdentificativi.Sede.Indirizzo);
+            Assert.AreEqual("1", cc.AltriDatiIdentificativi.Sede.NumeroCivico);
+            Assert.AreEqual("80100", cc.AltriDatiIdentificativi.Sede.CAP);
+            Assert.AreEqual("Napoli", cc.AltriDatiIdentificativi.Sede.Comune);
+            Assert.AreEqual("NA", cc.AltriDatiIdentificativi.Sede.Provincia);
+            Assert.AreEqual("IT", cc.AltriDatiIdentificativi.Sede.Nazione);
 
-        //    var body = f.Body[0];
-        //    // DatiGeneraliDocumento
-        //    Assert.AreEqual("TD01", body.DatiGenerali.DatiGeneraliDocumento.TipoDocumento);
-        //    Assert.AreEqual("EUR", body.DatiGenerali.DatiGeneraliDocumento.Divisa);
-        //    Assert.AreEqual(new DateTime(2014, 12, 18), body.DatiGenerali.DatiGeneraliDocumento.Data);
-        //    Assert.AreEqual("123", body.DatiGenerali.DatiGeneraliDocumento.Numero);
-        //    Assert.AreEqual("LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS", body.DatiGenerali.DatiGeneraliDocumento.Causale[0]);
-        //    Assert.AreEqual("SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200 CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB", body.DatiGenerali.DatiGeneraliDocumento.Causale[1]);
-        //    // DatiOrdineAcquisto
-        //    Assert.AreEqual(1, body.DatiGenerali.DatiOrdineAcquisto[0].RiferimentoNumeroLinea[0]);
-        //    Assert.AreEqual("66685", body.DatiGenerali.DatiOrdineAcquisto[0].IdDocumento);
-        //    Assert.AreEqual("1", body.DatiGenerali.DatiOrdineAcquisto[0].NumItem);
-
-        //    if (expectedFormat == FormatoTrasmissione.PubblicaAmministrazione)
-        //    {
-        //        Assert.AreEqual("123abc", body.DatiGenerali.DatiOrdineAcquisto[0].CodiceCUP);
-        //        Assert.AreEqual("456def", body.DatiGenerali.DatiOrdineAcquisto[0].CodiceCIG);
-        //        // DatiContratto
-        //        Assert.AreEqual(1, body.DatiGenerali.DatiContratto[0].RiferimentoNumeroLinea[0]);
-        //        Assert.AreEqual("123", body.DatiGenerali.DatiContratto[0].IdDocumento);
-        //        Assert.AreEqual(new DateTime(2016, 9, 1), body.DatiGenerali.DatiContratto[0].Data);
-        //        Assert.AreEqual("5", body.DatiGenerali.DatiContratto[0].NumItem);
-        //        Assert.AreEqual("123abc", body.DatiGenerali.DatiContratto[0].CodiceCUP);
-        //        Assert.AreEqual("456def", body.DatiGenerali.DatiContratto[0].CodiceCIG);
-        //        // DatiConvenzione
-        //        Assert.AreEqual(1, body.DatiGenerali.DatiConvenzione[0].RiferimentoNumeroLinea[0]);
-        //        Assert.AreEqual("456", body.DatiGenerali.DatiConvenzione[0].IdDocumento);
-        //        Assert.AreEqual("5", body.DatiGenerali.DatiConvenzione[0].NumItem);
-        //        Assert.AreEqual("123abc", body.DatiGenerali.DatiConvenzione[0].CodiceCUP);
-        //        Assert.AreEqual("456def", body.DatiGenerali.DatiConvenzione[0].CodiceCIG);
-        //        // DatiRicezione
-        //        Assert.AreEqual(1, body.DatiGenerali.DatiRicezione[0].RiferimentoNumeroLinea[0]);
-        //        Assert.AreEqual("789", body.DatiGenerali.DatiRicezione[0].IdDocumento);
-        //        Assert.AreEqual("5", body.DatiGenerali.DatiRicezione[0].NumItem);
-        //        Assert.AreEqual("123abc", body.DatiGenerali.DatiRicezione[0].CodiceCUP);
-        //        Assert.AreEqual("456def", body.DatiGenerali.DatiRicezione[0].CodiceCIG);
-        //    }
-
-        //    // DatiAnagraficiVettore
-        //    Assert.AreEqual("IT", body.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.IdFiscaleIVA.IdPaese);
-        //    Assert.AreEqual("24681012141", body.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.IdFiscaleIVA.IdCodice);
-        //    Assert.AreEqual("Trasporto spa", body.DatiGenerali.DatiTrasporto.DatiAnagraficiVettore.Anagrafica.Denominazione);
-        //    // DataOraConsegna
-        //    Assert.AreEqual(new DateTime(2012, 10, 22, 16, 46, 12), body.DatiGenerali.DatiTrasporto.DataOraConsegna);
-        //    // DatiBeniServizi
-        //    Assert.AreEqual(1, body.DatiBeniServizi.DettaglioLinee[0].NumeroLinea);
-        //    Assert.AreEqual("LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI", body.DatiBeniServizi.DettaglioLinee[0].Descrizione);
-        //    Assert.AreEqual(5m, body.DatiBeniServizi.DettaglioLinee[0].Quantita);
-        //    Assert.AreEqual(1m, body.DatiBeniServizi.DettaglioLinee[0].PrezzoUnitario);
-        //    Assert.AreEqual(5m, body.DatiBeniServizi.DettaglioLinee[0].PrezzoTotale);
-        //    Assert.AreEqual(22m, body.DatiBeniServizi.DettaglioLinee[0].AliquotaIVA);
-        //    Assert.AreEqual(2, body.DatiBeniServizi.DettaglioLinee[1].NumeroLinea);
-        //    Assert.AreEqual("FORNITURE VARIE PER UFFICIO", body.DatiBeniServizi.DettaglioLinee[1].Descrizione);
-        //    Assert.AreEqual(10m, body.DatiBeniServizi.DettaglioLinee[1].Quantita);
-        //    Assert.AreEqual(2m, body.DatiBeniServizi.DettaglioLinee[1].PrezzoUnitario);
-        //    Assert.AreEqual(20m, body.DatiBeniServizi.DettaglioLinee[1].PrezzoTotale);
-        //    Assert.AreEqual(22m, body.DatiBeniServizi.DettaglioLinee[1].AliquotaIVA);
-        //    Assert.AreEqual(3, body.DatiBeniServizi.DettaglioLinee[2].NumeroLinea);
-        //    Assert.AreEqual("TUBI RITORNO GASOLIO", body.DatiBeniServizi.DettaglioLinee[2].Descrizione);
-        //    Assert.AreEqual(2m, body.DatiBeniServizi.DettaglioLinee[2].Quantita);
-        //    Assert.AreEqual(5m, body.DatiBeniServizi.DettaglioLinee[2].PrezzoUnitario);
-        //    Assert.AreEqual(6.58m, body.DatiBeniServizi.DettaglioLinee[2].PrezzoTotale);
-        //    Assert.AreEqual(22m, body.DatiBeniServizi.DettaglioLinee[2].AliquotaIVA);
-        //    Assert.AreEqual("SC", body.DatiBeniServizi.DettaglioLinee[2].ScontoMaggiorazione[0].Tipo);
-        //    Assert.AreEqual(-1.71m, body.DatiBeniServizi.DettaglioLinee[2].ScontoMaggiorazione[0].Importo);
-        //    Assert.AreEqual("TUBI RITORNO GASOLIO", body.DatiBeniServizi.DettaglioLinee[2].Descrizione);
-        //    Assert.AreEqual(1m, body.DatiBeniServizi.DettaglioLinee[3].Quantita);
-        //    Assert.AreEqual(5m, body.DatiBeniServizi.DettaglioLinee[3].PrezzoUnitario);
-        //    Assert.AreEqual(4.5m, body.DatiBeniServizi.DettaglioLinee[3].PrezzoTotale);
-        //    Assert.AreEqual(22m, body.DatiBeniServizi.DettaglioLinee[3].AliquotaIVA);
-        //    Assert.AreEqual("SC", body.DatiBeniServizi.DettaglioLinee[3].ScontoMaggiorazione[0].Tipo);
-        //    Assert.AreEqual(10.0m, body.DatiBeniServizi.DettaglioLinee[3].ScontoMaggiorazione[0].Percentuale);
-        //    // DatiRiepilogo
-        //    Assert.AreEqual(22m, body.DatiBeniServizi.DatiRiepilogo[0].AliquotaIVA);
-        //    Assert.AreEqual(36.08m, body.DatiBeniServizi.DatiRiepilogo[0].ImponibileImporto);
-        //    Assert.AreEqual(7.94m, body.DatiBeniServizi.DatiRiepilogo[0].Imposta);
-        //    Assert.AreEqual("D", body.DatiBeniServizi.DatiRiepilogo[0].EsigibilitaIVA);
-        //    // DatiPagamento
-        //    Assert.AreEqual("TP01", body.DatiPagamento[0].CondizioniPagamento);
-        //    Assert.AreEqual("MP01", body.DatiPagamento[0].DettaglioPagamento[0].ModalitaPagamento);
-        //    Assert.AreEqual(new DateTime(2015, 01, 30), body.DatiPagamento[0].DettaglioPagamento[0].DataScadenzaPagamento);
-        //    Assert.AreEqual(36.08m, body.DatiPagamento[0].DettaglioPagamento[0].ImportoPagamento);
-        //}
+            var cp = c.FattureRicevute.CedentePrestatore[0];
+            Assert.AreEqual("IT", cp.IdentificativiFiscali.IdFiscaleIVA.IdPaese);
+            Assert.AreEqual("03954060632", cp.IdentificativiFiscali.IdFiscaleIVA.IdCodice);
+            Assert.AreEqual("93006500610", cp.IdentificativiFiscali.CodiceFiscale);
+            Assert.AreEqual("PIPPO S.R.L.", cp.AltriDatiIdentificativi.Denominazione);
+            Assert.AreEqual("VIA ROMA", cp.AltriDatiIdentificativi.Sede.Indirizzo);
+            Assert.AreEqual("80100", cp.AltriDatiIdentificativi.Sede.CAP);
+            Assert.AreEqual("napoli", cp.AltriDatiIdentificativi.Sede.Comune);
+            Assert.AreEqual("NA", cp.AltriDatiIdentificativi.Sede.Provincia);
+            Assert.AreEqual("IT", cp.AltriDatiIdentificativi.Sede.Nazione);
+            var b = cp.DatiFatturaBody[0];
+            Assert.AreEqual("TD01", b.DatiGenerali.TipoDocumento);
+            Assert.AreEqual(2017, b.DatiGenerali.Data.Year);
+            Assert.AreEqual(1, b.DatiGenerali.Data.Day);
+            Assert.AreEqual(5, b.DatiGenerali.Data.Month);
+            Assert.AreEqual("2", b.DatiGenerali.Numero);
+            Assert.AreEqual(1000m, b.DatiRiepilogo[0].ImponibileImporto);
+            Assert.AreEqual(100m, b.DatiRiepilogo[0].DatiIVA.Imposta);
+            Assert.AreEqual(10m, b.DatiRiepilogo[0].DatiIVA.Aliquota);
+    }
         private void SerializeAndAssertRootElementAttributes(ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi doc)
         {
         }
