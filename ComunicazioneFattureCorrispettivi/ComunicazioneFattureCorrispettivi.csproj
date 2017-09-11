@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Nicola Iarocci</Authors>
+    <Company>CIR 2000</Company>
+    <PackageId>ComunicazioneFattureCorrispettivi.NET</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>ComunicazioneFattureCorrispettivi.NET</Product>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/FatturaElettronica/FattureCorrispettivi/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/FatturaElettronica/ComunicazioneFattureCorrispettivi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FatturaElettronica/ComunicazioneFattureCorrispettivi</RepositoryUrl>
+    <Copyright>Copyright © CIR2000 2017</Copyright>
+    <Description>Comunicazione periodica dei dati delle fatture alla pubblica amministrazione italiana</Description>
   </PropertyGroup>
 
   <ItemGroup>
