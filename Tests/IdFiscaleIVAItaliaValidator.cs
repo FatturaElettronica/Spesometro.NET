@@ -1,11 +1,11 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
-using ComunicazioneFattureCorrispettivi.Validators;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
+using ComunicazioneFattureEmesseRicevute.Validators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class IdFiscaleIVAItaliaValidator : BaseClass<IdFiscaleIVA, ComunicazioneFattureCorrispettivi.Validators.IdFiscaleIVAItaliaValidator>
+    public class IdFiscaleIVAItaliaValidator : BaseClass<IdFiscaleIVA, ComunicazioneFattureEmesseRicevute.Validators.IdFiscaleIVAItaliaValidator>
     {
 
         [TestMethod]

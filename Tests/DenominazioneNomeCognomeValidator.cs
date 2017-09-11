@@ -1,6 +1,6 @@
 ﻿using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ComunicazioneFattureCorrispettivi.Common;
+using ComunicazioneFattureEmesseRicevute.Common;
 using FluentValidation;
 
 namespace Tests

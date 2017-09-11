@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Nicola Iarocci</Authors>
+    <Company>CIR 2000</Company>
+    <PackageId>ComunicazioneFattureEmesseRicevute</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>ComunicazioneFattureEmesseRicevute</Product>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/FatturaElettronica/ComunicazioneFattureEmesseRicevute/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/FatturaElettronica/ComunicazioneFattureEmesseRicevute</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/FatturaElettronica/ComunicazioneFattureEmesseRicevute</RepositoryUrl>
+    <Copyright>Copyright © CIR2000 2017</Copyright>
+    <Description>Comunicazione periodica dei dati delle fatture alla pubblica amministrazione italiana</Description>
+    <AssemblyName>ComunicazioneFattureEmesseRicevute</AssemblyName>
+    <RootNamespace>ComunicazioneFattureEmesseRicevute</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FatturaElettronica.Core" Version="0.1.0" />
+    <PackageReference Include="FluentValidation" Version="7.1.1" />
+  </ItemGroup>
+
+</Project>

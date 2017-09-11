@@ -1,5 +1,5 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
-using ComunicazioneFattureCorrispettivi.Header;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
+using ComunicazioneFattureEmesseRicevute.Header;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
 {
     [TestClass]
     public class DatiGeneraliValidator  :
-        BaseClass<DatiGenerali, ComunicazioneFattureCorrispettivi.Validators.DatiGeneraliValidator>
+        BaseClass<DatiGenerali, ComunicazioneFattureEmesseRicevute.Validators.DatiGeneraliValidator>
     {
         [TestMethod]
         public void NumeroIsRequired()

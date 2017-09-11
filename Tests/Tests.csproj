@@ -90,14 +90,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComunicazioneFattureCorrispettivi\ComunicazioneFattureCorrispettivi.csproj">
-      <Project>{8d0466e2-be6d-47fa-ab7d-7b03708aaf0f}</Project>
-      <Name>ComunicazioneFattureCorrispettivi</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Samples\ITAAABBB99T99X999W_DF_00002.xml" />
     <Content Include="Samples\ITAAABBB99T99X999W_DF_00004.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComunicazioneFattureEmesseRicevute\ComunicazioneFattureEmesseRicevute.csproj">
+      <Project>{0cc05ab4-7973-4643-a3fc-61e1584586c6}</Project>
+      <Name>ComunicazioneFattureEmesseRicevute</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

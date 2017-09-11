@@ -1,4 +1,4 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
     [TestClass]
     public class AltriDatiIdentificativiValidator : 
         DenominazioneNomeCognomeValidator<AltriDatiIdentificativi, 
-            ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiItaliaValidator>
+            ComunicazioneFattureEmesseRicevute.Validators.AltriDatiIdentificativiItaliaValidator>
     {
 
         [TestMethod]
@@ -23,14 +23,14 @@ namespace Tests
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.StabileOrganizzazione, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.LocalitàValidator));
+                typeof(ComunicazioneFattureEmesseRicevute.Validators.LocalitàValidator));
         }
         [TestMethod]
         public void RappresentanteFiscaleHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.RappresentanteFiscale, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.RappresentanteFiscaleItaliaValidator));
+                typeof(ComunicazioneFattureEmesseRicevute.Validators.RappresentanteFiscaleItaliaValidator));
         }
     }
 }

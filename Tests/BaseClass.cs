@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Linq;
 //using FatturaElettronica.Tabelle;
 using System.Collections.Generic;
-using ComunicazioneFattureCorrispettivi.Tabelle;
+using ComunicazioneFattureEmesseRicevute.Tabelle;
 
 namespace Tests
 {

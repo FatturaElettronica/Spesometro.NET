@@ -1,5 +1,5 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
-using ComunicazioneFattureCorrispettivi.Tabelle;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
+using ComunicazioneFattureEmesseRicevute.Tabelle;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
 {
     [TestClass]
     public class DatiRiepilogoValidator  :
-        BaseClass<DatiRiepilogo, ComunicazioneFattureCorrispettivi.Validators.DatiRiepilogoValidator>
+        BaseClass<DatiRiepilogo, ComunicazioneFattureEmesseRicevute.Validators.DatiRiepilogoValidator>
     {
         [TestMethod]
         public void NaturaOnlyAcceptsTableValues()

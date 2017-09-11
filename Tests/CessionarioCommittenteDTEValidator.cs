@@ -1,13 +1,13 @@
 ﻿using System.Linq;
-using ComunicazioneFattureCorrispettivi.Common;
-using ComunicazioneFattureCorrispettivi.FattureEmesse;
+using ComunicazioneFattureEmesseRicevute.Common;
+using ComunicazioneFattureEmesseRicevute.FattureEmesse;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureCorrispettivi.Validators.CessionarioCommittenteDTEValidator>
+    public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, ComunicazioneFattureEmesseRicevute.Validators.CessionarioCommittenteDTEValidator>
     {
 
         [TestMethod]
@@ -15,14 +15,14 @@ namespace Tests
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.IdentificativiFiscali,
-                typeof(ComunicazioneFattureCorrispettivi.Validators.IdentificativiFiscaliCessionarioCommittenteDTEValidator));
+                typeof(ComunicazioneFattureEmesseRicevute.Validators.IdentificativiFiscaliCessionarioCommittenteDTEValidator));
         }
         [TestMethod]
         public void AltriDatiIdentificativiHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.AltriDatiIdentificativi,
-                typeof(ComunicazioneFattureCorrispettivi.Validators.AltriDatiIdentificativiValidator));
+                typeof(ComunicazioneFattureEmesseRicevute.Validators.AltriDatiIdentificativiValidator));
         }
         [TestMethod]
         public void DatiFatturaBodyCollectionMinMaxItems()

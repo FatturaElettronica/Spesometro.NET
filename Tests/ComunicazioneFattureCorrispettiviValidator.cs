@@ -6,31 +6,31 @@ namespace Tests
 {
     [TestClass]
     public class ComunicazioneFattureCorrispettiviValidator  :
-        BaseClass<ComunicazioneFattureCorrispettivi.ComunicazioneFattureCorrispettivi, ComunicazioneFattureCorrispettivi.Validators.ComunicazioneFattureCorrispettiviValidator>
+        BaseClass<ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute, ComunicazioneFattureEmesseRicevute.Validators.ComunicazioneFattureCorrispettiviValidator>
     {
         [TestMethod]
         public void HeaderHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
-                x => x.Header, typeof(ComunicazioneFattureCorrispettivi.Validators.HeaderValidator));
+                x => x.Header, typeof(ComunicazioneFattureEmesseRicevute.Validators.HeaderValidator));
         }
         [TestMethod]
         public void FattureEmesseHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureEmesse, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureEmesseValidator));
+                x => x.FattureEmesse, typeof(ComunicazioneFattureEmesseRicevute.Validators.FattureEmesseValidator));
         }
         [TestMethod]
         public void FattureRicevuteHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureRicevute, typeof(ComunicazioneFattureCorrispettivi.Validators.FattureRicevuteValidator));
+                x => x.FattureRicevute, typeof(ComunicazioneFattureEmesseRicevute.Validators.FattureRicevuteValidator));
         }
         [TestMethod]
         public void AnnullamentoHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.Annullamento, typeof(ComunicazioneFattureCorrispettivi.Validators.RettificaValidator));
+                x => x.Annullamento, typeof(ComunicazioneFattureEmesseRicevute.Validators.RettificaValidator));
         }
         [TestMethod]
         public void FattureEmesseEmptyWhenRicevuteOrAnnullamentoAreNotEmpty()

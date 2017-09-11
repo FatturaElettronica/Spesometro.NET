@@ -1,11 +1,11 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
     public class RettificaValidator  :
-        BaseClass<Rettifica, ComunicazioneFattureCorrispettivi.Validators.RettificaValidator>
+        BaseClass<Rettifica, ComunicazioneFattureEmesseRicevute.Validators.RettificaValidator>
     {
         [TestMethod]
         public void IdFileIsRequired()

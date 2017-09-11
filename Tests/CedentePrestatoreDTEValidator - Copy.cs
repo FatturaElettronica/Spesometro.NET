@@ -1,11 +1,11 @@
-﻿using ComunicazioneFattureCorrispettivi.Common;
+﻿using ComunicazioneFattureEmesseRicevute.Common;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class DatiFatturaBodyValidator : BaseClass<DatiFatturaBody, ComunicazioneFattureCorrispettivi.Validators.DatiFatturaBodyValidator>
+    public class DatiFatturaBodyValidator : BaseClass<DatiFatturaBody, ComunicazioneFattureEmesseRicevute.Validators.DatiFatturaBodyValidator>
     {
 
         [TestMethod]
@@ -13,7 +13,7 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.DatiGenerali, 
-                typeof(ComunicazioneFattureCorrispettivi.Validators.DatiGeneraliValidator));
+                typeof(ComunicazioneFattureEmesseRicevute.Validators.DatiGeneraliValidator));
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ComunicazioneFattureCorrispettivi.Header;
+using ComunicazioneFattureEmesseRicevute.Header;
 
 namespace Tests
 {
     [TestClass]
     public class HeaderValidator :
-        BaseClass<Header, ComunicazioneFattureCorrispettivi.Validators.HeaderValidator>
+        BaseClass<Header, ComunicazioneFattureEmesseRicevute.Validators.HeaderValidator>
     {
         [TestMethod]
         public void ProgressivoInvioIsOptional()
@@ -21,7 +21,7 @@ namespace Tests
         [TestMethod]
         public void DichiaranteHasChildValidator()
         {
-            validator.ShouldHaveDelegateChildValidator(x => x.Dichiarante, typeof(ComunicazioneFattureCorrispettivi.Validators.DichiaranteValidator));
+            validator.ShouldHaveDelegateChildValidator(x => x.Dichiarante, typeof(ComunicazioneFattureEmesseRicevute.Validators.DichiaranteValidator));
         }
     }
 }
