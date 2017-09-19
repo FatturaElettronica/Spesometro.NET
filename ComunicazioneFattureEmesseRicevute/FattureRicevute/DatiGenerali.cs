@@ -8,10 +8,10 @@ namespace ComunicazioneFattureEmesseRicevute.FattureRicevute
 {
     public class DatiGenerali : Common.DatiGenerali {
 
-        public DatiGenerali() { }
+        public DatiGenerali() : base() { }
         public DatiGenerali(XmlReader r) : base(r) { }
 
-        [DataProperty]
+        [DataProperty(order:3)]
         public DateTime? DataRegistrazione { get; set; }
     }
 }

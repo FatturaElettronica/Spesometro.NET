@@ -6,13 +6,17 @@ using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureEmesseRicevute.FattureRicevute
 {
-    public class CedentePrestatore : CedenteCessionarioDatiFatturaBody
+    public class CedentePrestatore : CedenteCessionario<CedentePrestatore>
     {
-        public CedentePrestatore() : base() { }
+        private readonly List<DatiFatturaBody> _datiFatturaBody;
+        public CedentePrestatore() : base()
+        {
+            _datiFatturaBody = new List<DatiFatturaBody>();
+        }
         public CedentePrestatore(XmlReader r) : base(r) { }
 
         [DataProperty]
         [XmlElement(ElementName = "DatiFatturaBodyDTR")]
-        public new List<Common.DatiFatturaBody> DatiFatturaBody => base.DatiFatturaBody;
+        public List<DatiFatturaBody> DatiFatturaBody => _datiFatturaBody;
     }
 }

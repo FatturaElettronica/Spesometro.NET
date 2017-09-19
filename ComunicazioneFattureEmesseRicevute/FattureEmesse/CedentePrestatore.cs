@@ -2,5 +2,5 @@
 
 namespace ComunicazioneFattureEmesseRicevute.FattureEmesse
 {
-    public class CedentePrestatore : CedenteCessionario { }
+    public class CedentePrestatore : CedenteCessionario<CedentePrestatore> { }
 }

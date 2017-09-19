@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class DatiFatturaBodyValidator : BaseClass<DatiFatturaBody, ComunicazioneFattureEmesseRicevute.Validators.DatiFatturaBodyValidator>
+    public class DatiFatturaBodyDTEValidator : BaseClass<DatiFatturaBody, ComunicazioneFattureEmesseRicevute.Validators.DatiFatturaBodyDTEValidator>
     {
 
         [TestMethod]

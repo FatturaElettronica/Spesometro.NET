@@ -1,9 +1,9 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
+﻿using ComunicazioneFattureEmesseRicevute.FattureRicevute;
 using FluentValidation;
 
 namespace ComunicazioneFattureEmesseRicevute.Validators
 {
-    public class CedentePrestatoreDTRValidator : AbstractValidator<CedenteCessionarioDatiFatturaBody>
+    public class CedentePrestatoreDTRValidator : AbstractValidator<CedentePrestatore>
     {
         public CedentePrestatoreDTRValidator()
         {
@@ -12,7 +12,7 @@ namespace ComunicazioneFattureEmesseRicevute.Validators
             RuleFor(x => x.AltriDatiIdentificativi)
                 .SetValidator(new AltriDatiIdentificativiValidator());
             RuleFor(x => x.DatiFatturaBody)
-                .SetCollectionValidator(new DatiFatturaBodyValidator())
+                .SetCollectionValidator(new DatiFatturaBodyDTRValidator())
                 .NotEmpty();
             RuleFor(x => x.DatiFatturaBody)
                 .Must(items => items.Count >= 1 && items.Count <= 1000);

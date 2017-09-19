@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComunicazioneFattureEmesseRicevute", "ComunicazioneFattureEmesseRicevute\ComunicazioneFattureEmesseRicevute.csproj", "{0CC05AB4-7973-4643-A3FC-61E1584586C6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FatturaElettronica.Core", "..\FatturaElettronica.Core\FatturaElettronica.Core.csproj", "{CA13B2D9-CE94-4D8B-BCE2-DDCF0F99BDA4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "WindowsApp1\WindowsApp1.vbproj", "{B7C32AD3-5F06-42C5-A33E-96A2A1089236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{0CC05AB4-7973-4643-A3FC-61E1584586C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CC05AB4-7973-4643-A3FC-61E1584586C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CC05AB4-7973-4643-A3FC-61E1584586C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA13B2D9-CE94-4D8B-BCE2-DDCF0F99BDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA13B2D9-CE94-4D8B-BCE2-DDCF0F99BDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA13B2D9-CE94-4D8B-BCE2-DDCF0F99BDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA13B2D9-CE94-4D8B-BCE2-DDCF0F99BDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C32AD3-5F06-42C5-A33E-96A2A1089236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C32AD3-5F06-42C5-A33E-96A2A1089236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C32AD3-5F06-42C5-A33E-96A2A1089236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C32AD3-5F06-42C5-A33E-96A2A1089236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

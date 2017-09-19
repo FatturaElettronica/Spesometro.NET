@@ -3,16 +3,16 @@ using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureEmesseRicevute.FattureRicevute
 {
-    public class DatiFatturaBody : Common.DatiFatturaBody
+    public class DatiFatturaBody : Common.DatiFatturaBodyBase
     {
         private readonly DatiGenerali _datiGenerali;
-        public DatiFatturaBody()
+        public DatiFatturaBody() : base()
         {
             _datiGenerali = new DatiGenerali();
         }
         public DatiFatturaBody(XmlReader r) : base(r) { }
 
         [DataProperty]
-        public new DatiGenerali DatiGenerali => _datiGenerali;
+        public DatiGenerali DatiGenerali => _datiGenerali;
     }
 }

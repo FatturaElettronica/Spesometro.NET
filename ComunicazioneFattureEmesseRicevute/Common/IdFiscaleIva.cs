@@ -1,12 +1,17 @@
 ﻿using System.Xml;
+using ComunicazioneFattureEmesseRicevute.Validators;
 using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureEmesseRicevute.Common
 {
-    public class IdFiscaleIVA : BaseClassSerializable
+    public class IdFiscaleIVA : BaseClassValidatable<IdFiscaleIVA>
     {
 
-        public IdFiscaleIVA() { }
+        public IdFiscaleIVA() : base()
+        {
+            Validator = new IdFiscaleIVAValidator();
+        }
+
         public IdFiscaleIVA(XmlReader r) : base(r) { }
 
         [DataProperty]

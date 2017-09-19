@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace ComunicazioneFattureEmesseRicevute.Validators
 {
-    public class DatiFatturaBodyValidator : AbstractValidator<DatiFatturaBody>
+    public class DatiFatturaBodyDTEValidator : AbstractValidator<DatiFatturaBody>
     {
-        public DatiFatturaBodyValidator()
+        public DatiFatturaBodyDTEValidator()
         {
             RuleFor(x => x.DatiGenerali)
                 .SetValidator(new DatiGeneraliValidator());
