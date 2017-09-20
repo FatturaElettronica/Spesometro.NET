@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace ComunicazioneFattureEmesseRicevute.Validators
 {
-    public class CessionarioCommittenteDTRValidator : AbstractValidator<CedenteCessionario>
+    public class CessionarioCommittenteDTRValidator : AbstractValidator<CedenteCessionario<FattureRicevute.CessionarioCommittente>>
     {
         public CessionarioCommittenteDTRValidator()
         {

@@ -9,6 +9,12 @@ namespace Tests
     {
 
         [TestMethod]
+        public void TestIDataError()
+        {
+            //challenge.AttachValidator(new ComunicazioneFattureEmesseRicevute.Validators.IdFiscaleIVAItaliaValidator());
+            var a = challenge["IdPaese"];
+        }
+        [TestMethod]
         public void IdPaeseIsRequired()
         {
             AssertRequired(x => x.IdPaese);

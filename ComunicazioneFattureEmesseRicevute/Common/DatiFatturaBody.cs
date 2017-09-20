@@ -1,24 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
+using ComunicazioneFattureEmesseRicevute.Common;
 using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureEmesseRicevute.Common
 {
-    public class DatiFatturaBody : BaseClassSerializable
+    public class DatiFatturaBody : DatiFatturaBodyBase
     {
         private readonly DatiGenerali _datiGenerali;
-        private readonly List<DatiRiepilogo> _datiRiepilogo;
 
-        public DatiFatturaBody()
+        public DatiFatturaBody() : base()
         {
             _datiGenerali = new DatiGenerali();
-            _datiRiepilogo = new List<DatiRiepilogo>();
         }
         public DatiFatturaBody(XmlReader r) : base(r) { }
 
         [DataProperty]
-        public DatiGenerali DatiGenerali => _datiGenerali;
-        [DataProperty]
-        public List<DatiRiepilogo> DatiRiepilogo => _datiRiepilogo;
+        public virtual DatiGenerali DatiGenerali => _datiGenerali;
     }
 }

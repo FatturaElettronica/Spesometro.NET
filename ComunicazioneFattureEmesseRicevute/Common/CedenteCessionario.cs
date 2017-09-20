@@ -3,7 +3,7 @@ using FatturaElettronica.Common;
 
 namespace ComunicazioneFattureEmesseRicevute.Common
 {
-    public class CedenteCessionario : BaseClassSerializable
+    public class CedenteCessionario<T> : BaseClassValidatable<T> where T: CedenteCessionario<T>
     {
         private readonly IdentificativiFiscali _identificativiFiscali;
         private readonly AltriDatiIdentificativi _altriDatiIdentificativi;

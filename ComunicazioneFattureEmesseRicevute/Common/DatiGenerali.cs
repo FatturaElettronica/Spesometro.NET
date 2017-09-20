@@ -9,11 +9,11 @@ namespace ComunicazioneFattureEmesseRicevute.Common
         public DatiGenerali() { }
         public DatiGenerali(XmlReader r) : base(r) { }
         
-        [DataProperty]
+        [DataProperty(order:0)]
         public string TipoDocumento { get; set; }
-        [DataProperty]
+        [DataProperty(order:1)]
         public DateTime Data { get; set; }
-        [DataProperty]
+        [DataProperty(order:2)]
         public string Numero { get; set; }
     }
 }
