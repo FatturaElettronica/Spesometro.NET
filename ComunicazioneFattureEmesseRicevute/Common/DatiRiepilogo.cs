@@ -20,7 +20,7 @@ namespace ComunicazioneFattureEmesseRicevute.Common
         [DataProperty]
         public string Natura { get; set; }
         [DataProperty]
-        public decimal Detraibile { get; set; }
+        public decimal? Detraibile { get; set; }
         [DataProperty]
         public string Deducibile { get; set; }
         [DataProperty]
