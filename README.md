@@ -5,17 +5,6 @@
 - Convalida in osservanza delle specifiche  tecniche ufficiali
 - .NET Standard v2.0 offre supporto per un [ampio numero di piattaforme][netstandard].
 
-## Installazione
-ComunicazioneFattureEmesseRicevute è un package [NuGet][nuget] quindi tutto quel che serve è eseguire:
-
-```
-	PM> Install-Package ComunicazioneFattureEmesseRicevute
-```
-dalla Package Console, oppure usare il comando equivalente in Visual Studio.
-
-## Licenza
-ComunicazioneFattureEmesseRicevute è un progetto open source di [Nicola Iarocci][ni] e [Gestionale Amica][ga] rilasciato sotto licenza [BSD][bsd].
-
 ## Utilizzo
 ```cs
 using System;
@@ -92,6 +81,18 @@ namespace ConsoleApp1
     }
 }
 ```
+## Installazione
+
+ComunicazioneFattureEmesseRicevute è un package [NuGet][nuget] quindi tutto quel che serve è eseguire:
+
+```
+	PM> Install-Package ComunicazioneFattureEmesseRicevute
+```
+dalla Package Console, oppure usare il comando equivalente in Visual Studio.
+
+## Licenza
+ComunicazioneFattureEmesseRicevute è un progetto open source di [Nicola Iarocci][ni] e [Gestionale Amica][ga] rilasciato sotto licenza [BSD][bsd].
+
 
 [bsd]: https://raw.githubusercontent.com/FatturaElettronica/ComunicazioneFattureEmesseRicevute/master/LICENSE
 [ga]: http://gestionaleamica.com
