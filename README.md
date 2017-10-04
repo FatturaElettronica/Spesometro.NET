@@ -1,5 +1,5 @@
 # Spesometro
-O "Comunicazione delle Fatture Emesse e Ricevute''
+Anche detto "Comunicazione delle Fatture Emesse e Ricevute"
 
 ## Caratteristiche
 - Lettura e scrittura nel [formato standard][pa] supportato dalla PA Italiana (XML).
