@@ -1,4 +1,4 @@
-﻿using ComunicazioneFattureEmesseRicevute.Header;
+﻿using Spesometro.Header;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -6,7 +6,7 @@ namespace Tests
 {
     [TestClass]
     public class DichiaranteValidator  :
-        BaseClass<Dichiarante, ComunicazioneFattureEmesseRicevute.Validators.DichiaranteValidator>
+        BaseClass<Dichiarante, Spesometro.Validators.DichiaranteValidator>
     {
         [TestMethod]
         public void CodiceFiscaleIsRequired()

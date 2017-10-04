@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.FattureRicevute;
+using Spesometro.Common;
+using Spesometro.FattureRicevute;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class FattureRicevuteValidator : BaseClass<FattureRicevute, ComunicazioneFattureEmesseRicevute.Validators.FattureRicevuteValidator>
+    public class FattureRicevuteValidator : BaseClass<FattureRicevute, Spesometro.Validators.FattureRicevuteValidator>
     {
 
         [TestMethod]
@@ -16,14 +16,14 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.CessionarioCommittente, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.CessionarioCommittenteDTRValidator));
+                typeof(Spesometro.Validators.CessionarioCommittenteDTRValidator));
         }
         [TestMethod]
         public void CedentePrestatoreHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
                 x => x.CedentePrestatore, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.CedentePrestatoreDTRValidator));
+                typeof(Spesometro.Validators.CedentePrestatoreDTRValidator));
         }
         [TestMethod]
         public void CedentePrestatoreCollectionCannotBeEmpty()
@@ -61,7 +61,7 @@ namespace Tests
             r = validator.Validate(challenge);
             Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));
 
-            var datiFatturaBody = new ComunicazioneFattureEmesseRicevute.FattureRicevute.DatiFatturaBody();
+            var datiFatturaBody = new Spesometro.FattureRicevute.DatiFatturaBody();
             challenge.CedentePrestatore[0].DatiFatturaBody.AddRange(Enumerable.Repeat(datiFatturaBody,2));
             r = validator.Validate(challenge);
             Assert.IsNotNull(r.Errors.FirstOrDefault(x => x.PropertyName == "Rettifica" && x.ErrorCode == "00447"));

@@ -1,5 +1,5 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.Tabelle;
+﻿using Spesometro.Common;
+using Spesometro.Tabelle;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
 {
     [TestClass]
     public class DatiRiepilogoValidator  :
-        BaseClass<DatiRiepilogo, ComunicazioneFattureEmesseRicevute.Validators.DatiRiepilogoValidator>
+        BaseClass<DatiRiepilogo, Spesometro.Validators.DatiRiepilogoValidator>
     {
         [TestMethod]
         public void NaturaOnlyAcceptsTableValues()

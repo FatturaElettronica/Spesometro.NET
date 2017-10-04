@@ -1,5 +1,5 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.Header;
+﻿using Spesometro.Common;
+using Spesometro.Header;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
 {
     [TestClass]
     public class DatiGeneraliValidator  :
-        BaseClass<DatiGenerali, ComunicazioneFattureEmesseRicevute.Validators.DatiGeneraliValidator>
+        BaseClass<DatiGenerali, Spesometro.Validators.DatiGeneraliValidator>
     {
         [TestMethod]
         public void NumeroIsRequired()

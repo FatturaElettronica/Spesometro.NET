@@ -1,4 +1,4 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
+﻿using Spesometro.Common;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -6,7 +6,7 @@ namespace Tests
 {
     [TestClass]
     public class DatiFatturaBodyDTRValidator : 
-        BaseClass<ComunicazioneFattureEmesseRicevute.FattureRicevute.DatiFatturaBody, ComunicazioneFattureEmesseRicevute.Validators.DatiFatturaBodyDTRValidator>
+        BaseClass<Spesometro.FattureRicevute.DatiFatturaBody, Spesometro.Validators.DatiFatturaBodyDTRValidator>
     {
 
         [TestMethod]
@@ -14,7 +14,7 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.DatiGenerali, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.DatiGeneraliValidator));
+                typeof(Spesometro.Validators.DatiGeneraliValidator));
         }
     }
 }

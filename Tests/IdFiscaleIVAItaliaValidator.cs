@@ -1,17 +1,17 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.Validators;
+﻿using Spesometro.Common;
+using Spesometro.Validators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class IdFiscaleIVAItaliaValidator : BaseClass<IdFiscaleIVA, ComunicazioneFattureEmesseRicevute.Validators.IdFiscaleIVAItaliaValidator>
+    public class IdFiscaleIVAItaliaValidator : BaseClass<IdFiscaleIVA, Spesometro.Validators.IdFiscaleIVAItaliaValidator>
     {
 
         [TestMethod]
         public void TestIDataError()
         {
-            //challenge.AttachValidator(new ComunicazioneFattureEmesseRicevute.Validators.IdFiscaleIVAItaliaValidator());
+            //challenge.AttachValidator(new Spesometro.Validators.IdFiscaleIVAItaliaValidator());
             var a = challenge["IdPaese"];
         }
         [TestMethod]

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.FattureEmesse;
+using Spesometro.Common;
+using Spesometro.FattureEmesse;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
-    public class FattureEmesseValidator : BaseClass<FattureEmesse, ComunicazioneFattureEmesseRicevute.Validators.FattureEmesseValidator>
+    public class FattureEmesseValidator : BaseClass<FattureEmesse, Spesometro.Validators.FattureEmesseValidator>
     {
 
         [TestMethod]
@@ -16,14 +16,14 @@ namespace Tests
         {
             validator.ShouldHaveChildValidator(
                 x => x.CedentePrestatore, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.CedentePrestatoreDTEValidator));
+                typeof(Spesometro.Validators.CedentePrestatoreDTEValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
                 x => x.CessionarioCommittente, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.CessionarioCommittenteDTEValidator));
+                typeof(Spesometro.Validators.CessionarioCommittenteDTEValidator));
         }
         [TestMethod]
         public void CessionarioCommittenteCollectionCannotBeEmpty()

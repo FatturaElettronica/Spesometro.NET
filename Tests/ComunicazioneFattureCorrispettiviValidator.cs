@@ -6,31 +6,31 @@ namespace Tests
 {
     [TestClass]
     public class ComunicazioneFattureCorrispettiviValidator  :
-        BaseClass<ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute, ComunicazioneFattureEmesseRicevute.Validators.ComunicazioneFattureCorrispettiviValidator>
+        BaseClass<Spesometro.Spesometro, Spesometro.Validators.SpesometroValidator>
     {
         [TestMethod]
         public void HeaderHasChildValidator()
         {
             validator.ShouldHaveChildValidator(
-                x => x.Header, typeof(ComunicazioneFattureEmesseRicevute.Validators.HeaderValidator));
+                x => x.Header, typeof(Spesometro.Validators.HeaderValidator));
         }
         [TestMethod]
         public void FattureEmesseHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureEmesse, typeof(ComunicazioneFattureEmesseRicevute.Validators.FattureEmesseValidator));
+                x => x.FattureEmesse, typeof(Spesometro.Validators.FattureEmesseValidator));
         }
         [TestMethod]
         public void FattureRicevuteHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureRicevute, typeof(ComunicazioneFattureEmesseRicevute.Validators.FattureRicevuteValidator));
+                x => x.FattureRicevute, typeof(Spesometro.Validators.FattureRicevuteValidator));
         }
         [TestMethod]
         public void AnnullamentoHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
-                x => x.Annullamento, typeof(ComunicazioneFattureEmesseRicevute.Validators.RettificaValidator));
+                x => x.Annullamento, typeof(Spesometro.Validators.RettificaValidator));
         }
         [TestMethod]
         public void FattureEmesseEmptyWhenRicevuteOrAnnullamentoAreNotEmpty()

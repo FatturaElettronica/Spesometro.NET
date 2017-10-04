@@ -1,11 +1,11 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
+﻿using Spesometro.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
     [TestClass]
     public class RettificaValidator  :
-        BaseClass<Rettifica, ComunicazioneFattureEmesseRicevute.Validators.RettificaValidator>
+        BaseClass<Rettifica, Spesometro.Validators.RettificaValidator>
     {
         [TestMethod]
         public void IdFileIsRequired()

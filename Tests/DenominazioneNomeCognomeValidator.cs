@@ -1,6 +1,6 @@
 ﻿using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ComunicazioneFattureEmesseRicevute.Common;
+using Spesometro.Common;
 using FluentValidation;
 
 namespace Tests

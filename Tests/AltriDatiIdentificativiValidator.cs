@@ -1,4 +1,4 @@
-﻿using ComunicazioneFattureEmesseRicevute.Common;
+﻿using Spesometro.Common;
 using FluentValidation.TestHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +7,7 @@ namespace Tests
     [TestClass]
     public class AltriDatiIdentificativiValidator : 
         DenominazioneNomeCognomeValidator<AltriDatiIdentificativi, 
-            ComunicazioneFattureEmesseRicevute.Validators.AltriDatiIdentificativiItaliaValidator>
+            Spesometro.Validators.AltriDatiIdentificativiItaliaValidator>
     {
 
         [TestMethod]
@@ -23,14 +23,14 @@ namespace Tests
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.StabileOrganizzazione, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.LocalitàValidator));
+                typeof(Spesometro.Validators.LocalitàValidator));
         }
         [TestMethod]
         public void RappresentanteFiscaleHasChildValidator()
         {
             validator.ShouldHaveDelegateChildValidator(
                 x => x.RappresentanteFiscale, 
-                typeof(ComunicazioneFattureEmesseRicevute.Validators.RappresentanteFiscaleItaliaValidator));
+                typeof(Spesometro.Validators.RappresentanteFiscaleItaliaValidator));
         }
     }
 }

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ComunicazioneFattureEmesseRicevute\ComunicazioneFattureEmesseRicevute.csproj" />
+    <ProjectReference Include="..\Spesometro\Spesometro.csproj" />
   </ItemGroup>
 
 </Project>

@@ -97,9 +97,9 @@
     <Content Include="Samples\ITAAABBB99T99X999W_DF_00004.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComunicazioneFattureEmesseRicevute\ComunicazioneFattureEmesseRicevute.csproj">
-      <Project>{0cc05ab4-7973-4643-a3fc-61e1584586c6}</Project>
-      <Name>ComunicazioneFattureEmesseRicevute</Name>
+    <ProjectReference Include="..\Spesometro\Spesometro.csproj">
+      <Project>{f69e3234-1bfa-4523-b4c4-b55e79492496}</Project>
+      <Name>Spesometro</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Xml;
 using System.IO;
-using ComunicazioneFattureEmesseRicevute.Settings;
+using Spesometro.Settings;
 using System;
 using FatturaElettronica.Common;
 
@@ -13,7 +13,7 @@ namespace Tests
         [TestMethod]
         public void SerializeHeader()
         {
-            var doc = new ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute();
+            var doc = new Spesometro.Spesometro();
 
             using (var w = XmlWriter.Create("test", new XmlWriterSettings { Indent = true }))
             {
@@ -56,7 +56,7 @@ namespace Tests
         private void DeserializeAndThenSerialize(string filename, string sample)
         {
             var comunicazione = Deserialize(filename);
-            var validator = new ComunicazioneFattureEmesseRicevute.Validators.ComunicazioneFattureCorrispettiviValidator();
+            var validator = new Spesometro.Validators.SpesometroValidator();
 
             var r = validator.Validate(comunicazione);
             Assert.IsTrue(validator.Validate(comunicazione).IsValid);
@@ -74,9 +74,9 @@ namespace Tests
 
             File.Delete("challenge.xml");
         }
-        private ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute Deserialize(string fileName)
+        private Spesometro.Spesometro Deserialize(string fileName)
         {
-            var doc = new ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute();
+            var doc = new Spesometro.Spesometro();
             var s = new XmlReaderSettings {IgnoreWhitespace = true};
             using (var r = XmlReader.Create(fileName, new XmlReaderSettings { IgnoreWhitespace = true }))
             {
@@ -84,7 +84,7 @@ namespace Tests
             }
             return doc;
         }
-        private void ValidateComunicazione(ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute c, string sample)
+        private void ValidateComunicazione(Spesometro.Spesometro c, string sample)
         {
             switch (sample)
             {
@@ -96,7 +96,7 @@ namespace Tests
                     break;
             }
         }
-        private void ValidateComunicazioneDTE(ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute c)
+        private void ValidateComunicazioneDTE(Spesometro.Spesometro c)
         {
             Assert.AreEqual("0112001", c.Header.ProgressivoInvio);
 
@@ -151,7 +151,7 @@ namespace Tests
             Assert.AreEqual(40.28m, b.DatiRiepilogo[0].DatiIVA.Imposta);
             Assert.AreEqual(22m, b.DatiRiepilogo[0].DatiIVA.Aliquota);
         }
-        private void ValidateComunicazioneDTR(ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute c)
+        private void ValidateComunicazioneDTR(Spesometro.Spesometro c)
         {
             Assert.AreEqual("19", c.Header.ProgressivoInvio);
 
@@ -188,7 +188,7 @@ namespace Tests
             Assert.AreEqual(100m, b.DatiRiepilogo[0].DatiIVA.Imposta);
             Assert.AreEqual(10m, b.DatiRiepilogo[0].DatiIVA.Aliquota);
     }
-        private void SerializeAndAssertRootElementAttributes(ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute doc)
+        private void SerializeAndAssertRootElementAttributes(Spesometro.Spesometro doc)
         {
         }
     }

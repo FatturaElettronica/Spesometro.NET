@@ -1,4 +1,5 @@
-# Spesometro, o Comunicazione delle Fatture Emesse e Ricvute
+# Spesometro
+O "Comunicazione delle Fatture Emesse e Ricevute''
 
 ## Caratteristiche
 - Lettura e scrittura nel [formato standard][pa] supportato dalla PA Italiana (XML).
@@ -9,9 +10,9 @@
 ```cs
 using System;
 using System.Xml;
-using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.FattureEmesse;
-using ComunicazioneFattureEmesseRicevute.Validators;
+using Spesometro.Common;
+using Spesometro.FattureEmesse;
+using Spesometro.Validators;
 
 namespace ConsoleApp1
 {
@@ -19,7 +20,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var comunicazione = new ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute();
+            var comunicazione = new Spesometro.Spesometro();
 
             // Lettura da file XML
             using (var file = XmlReader.Create("IT01180680397_DF_00001.xml", new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))
@@ -27,7 +28,7 @@ namespace ConsoleApp1
                 comunicazione.ReadXml(file);
             }
 
-            // La classe ComunicazioneFattureEmesseRicevute segue lo schema del tracciato ufficiale, vedi:
+            // La classe Spesometro segue lo schema del tracciato ufficiale, vedi:
             // http://www.agenziaentrate.gov.it/wps/file/Nsilib/Nsi/Strumenti/Specifiche+tecniche/Specifiche+tecniche+comunicazioni/Fatture+e+corrispettivi+ST/Allegato+XML+Dati+Fattura/Formato+XMLdati_fattura.xls
             Console.WriteLine($"Progressivo invio: {comunicazione.Header.ProgressivoInvio}");
             Console.WriteLine($"Numero di destinatari fatture emesse: {comunicazione.FattureEmesse.CessionarioCommittente.Count}");
@@ -83,20 +84,20 @@ namespace ConsoleApp1
 ```
 ## Installazione
 
-ComunicazioneFattureEmesseRicevute è un package [NuGet][nuget] quindi tutto quel che serve è eseguire:
+Spesometro è un package [NuGet][nuget] quindi tutto quel che serve è eseguire:
 
 ```
-	PM> Install-Package ComunicazioneFattureEmesseRicevute
+	PM> Install-Package Spesometro
 ```
 dalla Package Console, oppure usare il comando equivalente in Visual Studio.
 
 ## Licenza
-ComunicazioneFattureEmesseRicevute è un progetto open source di [Nicola Iarocci][ni] e [Gestionale Amica][ga] rilasciato sotto licenza [BSD][bsd].
+Spesometro è un progetto open source di [Nicola Iarocci][ni] e [Gestionale Amica][ga] rilasciato sotto licenza [BSD][bsd].
 
 
-[bsd]: https://raw.githubusercontent.com/FatturaElettronica/ComunicazioneFattureEmesseRicevute/master/LICENSE
+[bsd]: https://raw.githubusercontent.com/FatturaElettronica/Spesometro.NET/master/LICENSE
 [ga]: http://gestionaleamica.com
 [ni]: https://nicolaiarocci.com
-[nuget]: https://www.nuget.org/packages/ComunicazioneFattureEmesseRicevute/
+[nuget]: https://www.nuget.org/packages/Spesometro/
 [pa]: http://www.agenziaentrate.gov.it/wps/file/Nsilib/Nsi/Strumenti/Specifiche+tecniche/Specifiche+tecniche+comunicazioni/Fatture+e+corrispettivi+ST/Allegato+XML+Dati+Fattura/Formato+XMLdati_fattura.xls
 [netstandard]: https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md

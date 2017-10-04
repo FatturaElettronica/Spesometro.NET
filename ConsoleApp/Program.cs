@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Xml;
-using ComunicazioneFattureEmesseRicevute.Common;
-using ComunicazioneFattureEmesseRicevute.FattureEmesse;
-using ComunicazioneFattureEmesseRicevute.Validators;
+using Spesometro.Common;
+using Spesometro.FattureEmesse;
+using Spesometro.Validators;
 
 namespace ConsoleApp1
 {
@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var comunicazione = new ComunicazioneFattureEmesseRicevute.ComunicazioneFattureEmesseRicevute();
+            var comunicazione = new Spesometro.Spesometro();
 
             // Lettura da file XML
             using (var file = XmlReader.Create("IT01180680397_DF_00001.xml", new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))
@@ -18,7 +18,7 @@ namespace ConsoleApp1
                 comunicazione.ReadXml(file);
             }
 
-            // La classe ComunicazioneFattureEmesseRicevute segue lo schema del tracciato ufficiale, vedi:
+            // La classe Spesometro segue lo schema del tracciato ufficiale, vedi:
             // http://www.agenziaentrate.gov.it/wps/file/Nsilib/Nsi/Strumenti/Specifiche+tecniche/Specifiche+tecniche+comunicazioni/Fatture+e+corrispettivi+ST/Allegato+XML+Dati+Fattura/Formato+XMLdati_fattura.xls
             Console.WriteLine($"Progressivo invio: {comunicazione.Header.ProgressivoInvio}");
             Console.WriteLine($"Numero di destinatari fatture emesse: {comunicazione.FattureEmesse.CessionarioCommittente.Count}");
