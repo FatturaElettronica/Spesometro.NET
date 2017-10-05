@@ -1,4 +1,5 @@
-# Spesometro
+# Spesometro [![Build status](https://ci.appveyor.com/api/projects/status/2rduokrjair9x4pf/branch/master?svg=true)](https://ci.appveyor.com/project/nicolaiarocci/spesometro-net/branch/master)
+
 Anche detto "Comunicazione delle Fatture Emesse e Ricevute"
 
 ## Caratteristiche
