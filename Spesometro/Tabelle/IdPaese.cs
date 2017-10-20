@@ -256,6 +256,7 @@
                     new IdPaese { Nome = "Yemen", Codice = "YE" },
                     new IdPaese { Nome = "Zambia", Codice = "ZM" },
                     new IdPaese { Nome = "Zimbabwe", Codice = "ZW" },
+                    new IdPaese { Nome = "Bollette doganali", Codice = "OO" }, //RISOLUZIONE N. 87/E AdE del 05/07/2017
                 };
             } 
         }
