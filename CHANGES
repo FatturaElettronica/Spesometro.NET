@@ -6,6 +6,7 @@ v0.0.2
 
 Non ancora rilasciata.
 
+- Aggiunto supporto per codice paese "OO" come da risoluzione n. 87/E AdE del 05/07/2017 (Fabio Calvigioni).
 - Aggiunto supporto per tipi documento TD10 e TD11 (Fabio Calvigioni).
 
 v0.0.1
