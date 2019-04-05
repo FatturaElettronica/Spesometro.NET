@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="FatturaElettronica.Core" Version="0.4.0" />
-    <PackageReference Include="FluentValidation" Version="8.0.100" />
+    <PackageReference Include="FluentValidation" Version="8.2.1" />
   </ItemGroup>
 
 </Project>
