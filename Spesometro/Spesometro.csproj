@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Authors>Nicola Iarocci</Authors>
     <Company>CIR 2000</Company>
     <PackageId>Spesometro</PackageId>
@@ -11,7 +11,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/FatturaElettronica/Spesometro.NET/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/FatturaElettronica/Spesometro.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/FatturaElettronica/Spesometro.NET</RepositoryUrl>
-    <Copyright>Copyright © CIR2000 2017</Copyright>
+    <Copyright>Copyright © CIR2000 2017-2021</Copyright>
     <Description>Spesometro, anche conosciuto come "comunicazione periodica dei dati delle fatture emesse e ricevute" alla pubblica amministrazione italiana</Description>
     <AssemblyName>Spesometro</AssemblyName>
     <RootNamespace>Spesometro</RootNamespace>
