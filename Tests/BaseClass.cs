@@ -1,4 +1,4 @@
-﻿using FatturaElettronica;
+﻿using FatturaElettronica.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentValidation.Results;
 using FluentValidation;
@@ -15,7 +15,7 @@ namespace Tests
 {
     [TestClass]
     public abstract class BaseClass<TClass, TValidator> 
-        where TClass : FatturaElettronica.Common.BaseClassSerializable
+        where TClass : BaseClassSerializable
         where TValidator : IValidator<TClass>
     {
         protected TValidator validator;

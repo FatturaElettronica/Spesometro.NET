@@ -14,8 +14,8 @@ namespace Spesometro.Validators
             RuleFor(x => x.AltriDatiIdentificativi)
                 .SetValidator(new AltriDatiIdentificativiValidator())
                 .When(x=>!x.AltriDatiIdentificativi.IsEmpty());
-            RuleFor(x => x.DatiFatturaBody)
-                .SetCollectionValidator(new DatiFatturaBodyDTEValidator())
+            RuleForEach(x => x.DatiFatturaBody)
+                .SetValidator(new DatiFatturaBodyDTEValidator())
                 .NotEmpty();
             RuleFor(x => x.DatiFatturaBody)
                 .Must(items => items.Count >= 1 && items.Count <= 1000);

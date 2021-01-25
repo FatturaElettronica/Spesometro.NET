@@ -18,19 +18,19 @@ namespace Tests
             challenge.Sede.CAP = "cap";
             validator.ShouldHaveValidationErrorFor(x => x.Sede.Indirizzo, challenge);
         }
-        [TestMethod]
-        public void StabileOrganizzazioneHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.StabileOrganizzazione, 
-                typeof(Spesometro.Validators.LocalitàValidator));
-        }
-        [TestMethod]
-        public void RappresentanteFiscaleHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.RappresentanteFiscale, 
-                typeof(Spesometro.Validators.RappresentanteFiscaleItaliaValidator));
-        }
+        //[TestMethod]
+        //public void StabileOrganizzazioneHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.StabileOrganizzazione, 
+        //        typeof(Spesometro.Validators.LocalitàValidator));
+        //}
+        //[TestMethod]
+        //public void RappresentanteFiscaleHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.RappresentanteFiscale, 
+        //        typeof(Spesometro.Validators.RappresentanteFiscaleItaliaValidator));
+        //}
     }
 }

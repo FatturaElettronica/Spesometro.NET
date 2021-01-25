@@ -10,20 +10,20 @@ namespace Tests
     public class CessionarioCommittenteDTEValidator : BaseClass<CessionarioCommittente, Spesometro.Validators.CessionarioCommittenteDTEValidator>
     {
 
-        [TestMethod]
-        public void IdentificativiFiscaliHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.IdentificativiFiscali,
-                typeof(Spesometro.Validators.IdentificativiFiscaliCessionarioCommittenteDTEValidator));
-        }
-        [TestMethod]
-        public void AltriDatiIdentificativiHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.AltriDatiIdentificativi,
-                typeof(Spesometro.Validators.AltriDatiIdentificativiValidator));
-        }
+        //[TestMethod]
+        //public void IdentificativiFiscaliHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.IdentificativiFiscali,
+        //        typeof(Spesometro.Validators.IdentificativiFiscaliCessionarioCommittenteDTEValidator));
+        //}
+        //[TestMethod]
+        //public void AltriDatiIdentificativiHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.AltriDatiIdentificativi,
+        //        typeof(Spesometro.Validators.AltriDatiIdentificativiValidator));
+        //}
         [TestMethod]
         public void DatiFatturaBodyCollectionMinMaxItems()
         {

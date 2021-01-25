@@ -9,8 +9,8 @@ namespace Spesometro.Validators
             RuleFor(x => x.CessionarioCommittente)
                 .SetValidator(new CessionarioCommittenteDTRValidator())
                 .NotEmpty();
-            RuleFor(x => x.CedentePrestatore)
-                .SetCollectionValidator(new CedentePrestatoreDTRValidator())
+            RuleForEach(x => x.CedentePrestatore)
+                .SetValidator(new CedentePrestatoreDTRValidator())
                 .NotEmpty();
             RuleFor(x => x.CedentePrestatore)
                 .Must(items => items.Count >= 1 && items.Count <= 1000);

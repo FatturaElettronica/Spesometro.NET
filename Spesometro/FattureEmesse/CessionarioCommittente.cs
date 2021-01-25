@@ -3,6 +3,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Spesometro.Common;
 using FatturaElettronica.Common;
+using FatturaElettronica.Core;
 
 namespace Spesometro.FattureEmesse
 {

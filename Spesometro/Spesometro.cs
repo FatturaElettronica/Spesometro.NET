@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 using Spesometro.Settings;
-using FatturaElettronica.Common;
+using FatturaElettronica.Core;
 
 namespace Spesometro
 {

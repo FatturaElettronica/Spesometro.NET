@@ -1,5 +1,6 @@
 ﻿using System.Xml;
 using FatturaElettronica.Common;
+using FatturaElettronica.Core;
 
 namespace Spesometro.Common
 {

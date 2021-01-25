@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Xml;
-using FatturaElettronica.Common;
+using FatturaElettronica.Core;
 using FluentValidation;
 
 namespace Spesometro.Common

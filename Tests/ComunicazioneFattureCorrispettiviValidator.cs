@@ -14,24 +14,24 @@ namespace Tests
             validator.ShouldHaveChildValidator(
                 x => x.Header, typeof(Spesometro.Validators.HeaderValidator));
         }
-        [TestMethod]
-        public void FattureEmesseHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureEmesse, typeof(Spesometro.Validators.FattureEmesseValidator));
-        }
-        [TestMethod]
-        public void FattureRicevuteHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.FattureRicevute, typeof(Spesometro.Validators.FattureRicevuteValidator));
-        }
-        [TestMethod]
-        public void AnnullamentoHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(
-                x => x.Annullamento, typeof(Spesometro.Validators.RettificaValidator));
-        }
+        //[TestMethod]
+        //public void FattureEmesseHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.FattureEmesse, typeof(Spesometro.Validators.FattureEmesseValidator));
+        //}
+        //[TestMethod]
+        //public void FattureRicevuteHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.FattureRicevute, typeof(Spesometro.Validators.FattureRicevuteValidator));
+        //}
+        //[TestMethod]
+        //public void AnnullamentoHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(
+        //        x => x.Annullamento, typeof(Spesometro.Validators.RettificaValidator));
+        //}
         [TestMethod]
         public void FattureEmesseEmptyWhenRicevuteOrAnnullamentoAreNotEmpty()
         {

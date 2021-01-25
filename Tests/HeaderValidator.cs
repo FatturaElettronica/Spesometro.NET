@@ -18,10 +18,10 @@ namespace Tests
         {
             AssertMinMaxLength(x => x.ProgressivoInvio, 1, 10);
         }
-        [TestMethod]
-        public void DichiaranteHasChildValidator()
-        {
-            validator.ShouldHaveDelegateChildValidator(x => x.Dichiarante, typeof(Spesometro.Validators.DichiaranteValidator));
-        }
+        //[TestMethod]
+        //public void DichiaranteHasChildValidator()
+        //{
+        //    validator.ShouldHaveDelegateChildValidator(x => x.Dichiarante, typeof(Spesometro.Validators.DichiaranteValidator));
+        //}
     }
 }
